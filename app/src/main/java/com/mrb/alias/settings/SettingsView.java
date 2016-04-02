@@ -5,5 +5,6 @@ package com.mrb.alias.settings;
  */
 public interface SettingsView {
 
-    void getTimeOnRound();
+    int getTimeOnRound();
+    void navigateToTeam();
 }

@@ -29,7 +29,7 @@ public class StartActivity extends AppCompatActivity implements StartView{
         this.runListeners();
     }
 
-    public void runListeners(){
+    protected void runListeners(){
         newGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

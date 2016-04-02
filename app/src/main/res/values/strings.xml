@@ -5,4 +5,6 @@
     <string name="second_page">Second Activity</string>
     <string name="title_activity_start">StartActivity</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_team">TeamActivity</string>
+    <string name="title_activity_game">GameActivity</string>
 </resources>
