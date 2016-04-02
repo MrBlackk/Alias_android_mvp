@@ -1,0 +1,17 @@
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+bin/
+gen/
+.gradle/
+./gradlew.bat
+./gradlew
+mirror/
+*.iws
+.idea/tasks.xml
+.idea
