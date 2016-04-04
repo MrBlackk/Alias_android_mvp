@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.mrb.alias.BuildConfig;
 import com.mrb.alias.R;
 import com.mrb.alias.settings.SettingsActivity;
 
@@ -17,6 +19,9 @@ public class StartActivity extends AppCompatActivity implements StartView{
     @Bind(R.id.button_new_game)
     Button newGameButton;
 
+    @Bind(R.id.textView_version)
+    TextView textViewVersion;
+
     private StartPresenter presenter;
 
     @Override
@@ -27,6 +32,9 @@ public class StartActivity extends AppCompatActivity implements StartView{
 
         presenter = new StartPresenterImpl(this);
         this.runListeners();
+
+        //Debug mode only
+        textViewVersion.setText("v." + BuildConfig.VERSION_NAME);
     }
 
     protected void runListeners(){
