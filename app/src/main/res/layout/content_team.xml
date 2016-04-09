@@ -27,27 +27,16 @@
         android:layout_height="wrap_content"
         android:text="@string/team_next"
         android:id="@+id/button_next_to_settings"
+        android:layout_marginBottom="60dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="116dp" />
+        android:layout_centerHorizontal="true" />
 
-    <TextView
+        <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Sith"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/textView_teams"
-        android:layout_toLeftOf="@+id/button_next_to_settings"
-        android:layout_toStartOf="@+id/button_next_to_settings" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Jedi"
-        android:id="@+id/textView4"
-        android:layout_below="@+id/textView3"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignStart="@+id/textView3" />
+        android:id="@+id/listViewTeams"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+            android:layout_above="@+id/button_next_to_settings"
+            android:layout_below="@+id/textView_teams" />
 </RelativeLayout>

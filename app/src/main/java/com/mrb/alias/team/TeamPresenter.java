@@ -6,4 +6,6 @@ package com.mrb.alias.team;
 public interface TeamPresenter {
 
     void onNextToSettingsClick();
+    void createTeams();
+    String getRandomName();
 }
