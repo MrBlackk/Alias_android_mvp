@@ -12,7 +12,7 @@ public class TeamPresenterImpl implements TeamPresenter {
     }
 
     @Override
-    public void onStartGameClick() {
-        teamView.navigateToGame();
+    public void onNextToSettingsClick() {
+        teamView.navigateToSettings();
     }
 }

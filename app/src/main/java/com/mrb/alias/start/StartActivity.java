@@ -6,18 +6,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mrb.alias.BuildConfig;
 import com.mrb.alias.R;
-import com.mrb.alias.settings.SettingsActivity;
+import com.mrb.alias.team.TeamActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class StartActivity extends AppCompatActivity implements StartView{
+public class StartActivity extends AppCompatActivity implements StartView {
 
     @Bind(R.id.button_new_game)
     Button newGameButton;
+
+    @Bind(R.id.button_rules)
+    Button rulesButton;
+
+    @Bind(R.id.button_exit)
+    Button exitButton;
 
     @Bind(R.id.textView_version)
     TextView textViewVersion;
@@ -34,22 +41,45 @@ public class StartActivity extends AppCompatActivity implements StartView{
         this.runListeners();
 
         //Debug mode only
-        textViewVersion.setText("v." + BuildConfig.VERSION_NAME);
+        String version = getString(R.string.start_version) + BuildConfig.VERSION_NAME;
+        textViewVersion.setText(version);
     }
 
-    protected void runListeners(){
+    protected void runListeners() {
         newGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.onNewGameButtonClick();
             }
         });
+        exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onExitButtonClick();
+            }
+        });
+        rulesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onRulesButtonClick();
+            }
+        });
     }
 
     @Override
-    public void navigateToSettings() {
-        startActivity(new Intent(this, SettingsActivity.class));
+    public void navigateToTeam() {
+        startActivity(new Intent(this, TeamActivity.class));
         finish();
+    }
+
+    @Override
+    public void exit() {
+        finish();
+    }
+
+    @Override
+    public void showRules() {
+        Toast.makeText(getApplicationContext(),"There are no rules!", Toast.LENGTH_LONG).show();
     }
 
     @Override

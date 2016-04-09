@@ -16,8 +16,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Teams:"
-        android:id="@+id/textView2"
+        android:text="@string/team_teams"
+        android:id="@+id/textView_teams"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -25,8 +25,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Game"
-        android:id="@+id/button_start_game"
+        android:text="@string/team_next"
+        android:id="@+id/button_next_to_settings"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="116dp" />
@@ -37,9 +37,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Sith"
         android:id="@+id/textView3"
-        android:layout_below="@+id/textView2"
-        android:layout_toLeftOf="@+id/button_start_game"
-        android:layout_toStartOf="@+id/button_start_game" />
+        android:layout_below="@+id/textView_teams"
+        android:layout_toLeftOf="@+id/button_next_to_settings"
+        android:layout_toStartOf="@+id/button_next_to_settings" />
 
     <TextView
         android:layout_width="wrap_content"

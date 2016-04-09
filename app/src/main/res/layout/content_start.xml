@@ -15,7 +15,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Game"
+        android:text="@string/start_new_game"
         android:id="@+id/button_new_game"
         android:layout_marginBottom="145dp"
         android:layout_alignParentBottom="true"
@@ -25,9 +25,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
+        android:text="@string/start_version"
         android:id="@+id/textView_version"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_rules"
+        android:id="@+id/button_rules"
+        android:layout_alignTop="@+id/button_new_game"
+        android:layout_alignLeft="@+id/button_new_game"
+        android:layout_alignStart="@+id/button_new_game"
+        android:layout_marginTop="46dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_exit"
+        android:id="@+id/button_exit"
+        android:layout_below="@+id/button_rules"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

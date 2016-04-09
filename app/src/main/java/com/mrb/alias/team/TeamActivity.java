@@ -7,15 +7,15 @@ import android.view.View;
 import android.widget.Button;
 
 import com.mrb.alias.R;
-import com.mrb.alias.game.GameActivity;
+import com.mrb.alias.settings.SettingsActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class TeamActivity extends AppCompatActivity implements TeamView{
 
-    @Bind(R.id.button_start_game)
-    Button buttonStartGame;
+    @Bind(R.id.button_next_to_settings)
+    Button buttonNextToSettings;
 
     private TeamPresenter presenter;
 
@@ -31,17 +31,17 @@ public class TeamActivity extends AppCompatActivity implements TeamView{
     }
 
     private void runListeners() {
-        buttonStartGame.setOnClickListener(new View.OnClickListener() {
+        buttonNextToSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.onStartGameClick();
+                presenter.onNextToSettingsClick();
             }
         });
     }
 
     @Override
-    public void navigateToGame() {
-        startActivity(new Intent(this, GameActivity.class));
+    public void navigateToSettings() {
+        startActivity(new Intent(this, SettingsActivity.class));
         finish();
     }
 }

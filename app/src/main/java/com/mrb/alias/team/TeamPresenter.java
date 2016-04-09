@@ -5,5 +5,5 @@ package com.mrb.alias.team;
  */
 public interface TeamPresenter {
 
-    void onStartGameClick();
+    void onNextToSettingsClick();
 }

@@ -5,5 +5,7 @@ package com.mrb.alias.start;
  */
 public interface StartPresenter {
     void onNewGameButtonClick();
+    void onExitButtonClick();
+    void onRulesButtonClick();
     void onDestroy();
 }
