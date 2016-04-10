@@ -16,5 +16,15 @@
     <string name="team_teams">Команди:</string>
     <string name="team_next">Далі</string>
 
+    <string name="settings_time">Час</string>
+    <string name="settings_points">Кількість слів</string>
+    <string name="settings_level">Рівень</string>
+    <string name="settings_next">Далі</string>
+    <string-array name="array_levels">
+        <item>Початковий</item>
+        <item>Середній</item>
+    </string-array>
+
+
 
 </resources>

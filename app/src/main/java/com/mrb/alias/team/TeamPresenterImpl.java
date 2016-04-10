@@ -9,6 +9,7 @@ import java.util.Random;
 public class TeamPresenterImpl implements TeamPresenter {
 
     TeamView teamView;
+    ArrayList<Team> arrayOfTeams;
 
     public TeamPresenterImpl(TeamView teamView) {
         this.teamView = teamView;
@@ -32,7 +33,7 @@ public class TeamPresenterImpl implements TeamPresenter {
         Team teamOne = new Team(firstName);
         Team teamTwo = new Team(secondName);
 
-        ArrayList<Team> arrayOfTeams = new ArrayList<>();
+        arrayOfTeams = new ArrayList<>();
 
         arrayOfTeams.add(teamOne);
         arrayOfTeams.add(teamTwo);

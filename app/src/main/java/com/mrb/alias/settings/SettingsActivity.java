@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.mrb.alias.R;
@@ -16,13 +17,22 @@ import butterknife.ButterKnife;
 
 public class SettingsActivity extends AppCompatActivity implements SettingsView{
 
-    @Bind(R.id.seekBar)
+    @Bind(R.id.seekBarTime)
     SeekBar timeSeekBar;
 
-    @Bind(R.id.seekValue)
+    @Bind(R.id.seekTimeValue)
     TextView valueTimeSeek;
 
-    @Bind(R.id.button_go_team)
+    @Bind(R.id.seekBarPoints)
+    SeekBar pointsSeekBar;
+
+    @Bind(R.id.seekPointsValue)
+    TextView valuePointsSeek;
+
+    @Bind(R.id.spinner_level)
+    Spinner levelSpinner;
+
+    @Bind(R.id.button_go_game)
     Button buttonGoTeam;
 
     private SettingsPresenter presenter;
@@ -47,17 +57,25 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView{
                 seekBar.setProgress(progress);
                 valueTimeSeek.setText(String.valueOf(progress));
             }
-
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
+            public void onStartTrackingTouch(SeekBar seekBar) {}
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
+            public void onStopTrackingTouch(SeekBar seekBar) {}
         });
+        pointsSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                int seekStep = 10;
+                progress = Math.round(progress/seekStep) * seekStep;
+                seekBar.setProgress(progress);
+                valuePointsSeek.setText(String.valueOf(progress));
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+
         buttonGoTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +87,16 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView{
     @Override
     public int getTimeOnRound() {
         return timeSeekBar.getProgress();
+    }
+
+    @Override
+    public int getPointsOnRound() {
+        return pointsSeekBar.getProgress();
+    }
+
+    @Override
+    public String getLevelValue() {
+        return String.valueOf(levelSpinner.getSelectedItem());
     }
 
     @Override
