@@ -5,5 +5,5 @@ package com.mrb.alias.settings;
  */
 public interface SettingsPresenter {
 
-    void onGoButtonClick();
+    void onNextButtonClick();
 }

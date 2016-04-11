@@ -56,11 +56,7 @@ public class TeamActivity extends AppCompatActivity implements TeamView{
 
     @Override
     public void showListOfUsers(ArrayList<Team> arrayOfTeams) {
-        TeamAdapter adapter = new TeamAdapter(this, arrayOfTeams);
-
+        TeamAdapter adapter = new TeamAdapter(this, arrayOfTeams, false);
         lvTeams.setAdapter(adapter);
-
-
-
     }
 }

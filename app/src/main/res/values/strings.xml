@@ -25,6 +25,9 @@
         <item>Середній</item>
     </string-array>
 
+    <string name="title_activity_results">ResultsActivity</string>
+    <string name="results_button_start">Старт</string>
+    <string name="results_text_results">Результати:</string>
 
 
 </resources>

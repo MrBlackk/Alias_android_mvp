@@ -12,7 +12,7 @@ public class SettingsPresenterImpl implements SettingsPresenter {
     }
 
     @Override
-    public void onGoButtonClick() {
-        settingsView.navigateToTeam();
+    public void onNextButtonClick() {
+        settingsView.navigateToResults();
     }
 }

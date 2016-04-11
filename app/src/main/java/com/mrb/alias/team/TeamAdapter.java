@@ -16,9 +16,16 @@ import java.util.ArrayList;
  */
 public class TeamAdapter extends ArrayAdapter<Team> {
 
+    protected boolean showPoints;
 
-    public TeamAdapter(Context context, ArrayList<Team> teams) {
+    @Override
+    public boolean isEnabled(int position) {
+        return false;
+    }
+
+    public TeamAdapter(Context context, ArrayList<Team> teams, boolean showPoints) {
         super(context, 0, teams);
+        this.showPoints = showPoints;
     }
 
     @Override
@@ -31,6 +38,13 @@ public class TeamAdapter extends ArrayAdapter<Team> {
         }
         TextView tvName = (TextView) convertView.findViewById(R.id.tvName);
         tvName.setText(team.getName());
+        TextView tvPoints = (TextView) convertView.findViewById(R.id.tvPoints);
+
+        if(this.showPoints){
+            tvPoints.setText(String.valueOf(team.getPoints()));
+        } else {
+            tvPoints.setVisibility(View.GONE);
+        }
 
         return convertView;
     }

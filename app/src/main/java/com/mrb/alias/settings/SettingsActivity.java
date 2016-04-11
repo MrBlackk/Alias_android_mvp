@@ -10,7 +10,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.mrb.alias.R;
-import com.mrb.alias.team.TeamActivity;
+import com.mrb.alias.results.ResultsActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -79,7 +79,7 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView{
         buttonGoTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.onGoButtonClick();
+                presenter.onNextButtonClick();
             }
         });
     }
@@ -100,8 +100,8 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView{
     }
 
     @Override
-    public void navigateToTeam() {
-        startActivity(new Intent(this, TeamActivity.class));
+    public void navigateToResults() {
+        startActivity(new Intent(this, ResultsActivity.class));
         finish();
     }
 }
