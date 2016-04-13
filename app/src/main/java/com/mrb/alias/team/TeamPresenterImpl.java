@@ -38,6 +38,7 @@ public class TeamPresenterImpl implements TeamPresenter {
         arrayOfTeams.add(teamOne);
         arrayOfTeams.add(teamTwo);
 
+        teamView.saveTeams(arrayOfTeams);
         teamView.showListOfUsers(arrayOfTeams);
     }
 

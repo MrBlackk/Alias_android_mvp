@@ -11,6 +11,7 @@ import com.mrb.alias.R;
 import com.mrb.alias.game.GameActivity;
 import com.mrb.alias.team.Team;
 import com.mrb.alias.team.TeamAdapter;
+import com.mrb.alias.utils.SharedPreference;
 
 import java.util.ArrayList;
 
@@ -26,12 +27,14 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView{
     Button buttonStart;
 
     private ResultsPresenter presenter;
+    private SharedPreference sharedPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
         ButterKnife.bind(this);
+        sharedPreference = new SharedPreference();
 
         presenter = new ResultsPresenterImpl(this);
         presenter.getResults();
@@ -58,5 +61,15 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView{
     public void navigateToGame() {
         startActivity(new Intent(this, GameActivity.class));
         finish();
+    }
+
+    @Override
+    public ArrayList<Team> getTeams() {
+        return sharedPreference.getTeams(this);
+    }
+
+    @Override
+    public void saveTeams(ArrayList<Team> arrayList) {
+        sharedPreference.saveTeams(this,arrayList);
     }
 }

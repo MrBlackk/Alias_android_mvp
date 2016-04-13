@@ -9,6 +9,7 @@ import android.widget.ListView;
 
 import com.mrb.alias.R;
 import com.mrb.alias.settings.SettingsActivity;
+import com.mrb.alias.utils.SharedPreference;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ public class TeamActivity extends AppCompatActivity implements TeamView{
     ListView lvTeams;
 
     private TeamPresenter presenter;
+    private SharedPreference sharedPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +33,10 @@ public class TeamActivity extends AppCompatActivity implements TeamView{
         setContentView(R.layout.activity_team);
 
         ButterKnife.bind(this);
+        sharedPreference = new SharedPreference();
 
         presenter = new TeamPresenterImpl(this);
         this.runListeners();
-
 
         presenter.createTeams();
     }
@@ -58,5 +60,10 @@ public class TeamActivity extends AppCompatActivity implements TeamView{
     public void showListOfUsers(ArrayList<Team> arrayOfTeams) {
         TeamAdapter adapter = new TeamAdapter(this, arrayOfTeams, false);
         lvTeams.setAdapter(adapter);
+    }
+
+    @Override
+    public void saveTeams(ArrayList<Team> arrayList) {
+        sharedPreference.saveTeams(this,arrayList);
     }
 }

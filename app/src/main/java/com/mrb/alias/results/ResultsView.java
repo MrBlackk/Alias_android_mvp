@@ -11,4 +11,6 @@ public interface ResultsView {
 
     void showResults(ArrayList<Team> arrayList);
     void navigateToGame();
+    ArrayList<Team> getTeams();
+    void saveTeams(ArrayList<Team> arrayList);
 }

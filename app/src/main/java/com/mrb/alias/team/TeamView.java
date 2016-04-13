@@ -8,4 +8,5 @@ import java.util.ArrayList;
 public interface TeamView {
     void navigateToSettings();
     void showListOfUsers(ArrayList<Team> arrayList);
+    void saveTeams(ArrayList<Team> arrayList);
 }
