@@ -10,6 +10,8 @@ import java.util.ArrayList;
 public interface ResultsView {
 
     void showResults(ArrayList<Team> arrayList);
+    void showNextTeam(String teamName);
+    void showRound(int round);
     void navigateToGame();
     ArrayList<Team> getTeams();
     void saveTeams(ArrayList<Team> arrayList);

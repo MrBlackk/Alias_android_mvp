@@ -7,4 +7,7 @@ public interface ResultsPresenter {
 
     void getResults();
     void onStartButtonClick();
+    void startGame();
+    void getRound();
+    void getNextTeam();
 }

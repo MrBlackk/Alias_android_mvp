@@ -11,6 +11,7 @@ public class ResultsPresenterImpl implements ResultsPresenter {
 
     ResultsView resultsView;
     ArrayList<Team> arrayOfTeams;
+    GameSingleton game = GameSingleton.getInstance();
 
     public ResultsPresenterImpl(ResultsView resultsView) {
         this.resultsView = resultsView;
@@ -18,21 +19,33 @@ public class ResultsPresenterImpl implements ResultsPresenter {
 
     @Override
     public void getResults() {
-
         arrayOfTeams = resultsView.getTeams();
-
-        Team first = arrayOfTeams.get(0);
-        Team second = arrayOfTeams.get(1);
-
-        // todo: just example of points, remove later
-        first.setPoints(11);
-        second.setPoints(12);
-
         resultsView.showResults(arrayOfTeams);
     }
 
     @Override
     public void onStartButtonClick() {
         resultsView.navigateToGame();
+    }
+
+    @Override
+    public void startGame() {
+        if(!game.isStarted()){
+            game.setIsStarted(true);
+            game.setTeams(arrayOfTeams);
+            game.setCurrentTeam(arrayOfTeams.get(0));
+            game.setRound(1);
+        }
+    }
+
+    @Override
+    public void getRound() {
+        resultsView.showRound(game.getRound());
+    }
+
+    @Override
+    public void getNextTeam() {
+        Team currentTeam = game.getCurrentTeam();
+        resultsView.showNextTeam(currentTeam.getName());
     }
 }

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.mrb.alias.R;
 import com.mrb.alias.game.GameActivity;
@@ -26,6 +27,12 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView{
     @Bind(R.id.button_results_start)
     Button buttonStart;
 
+    @Bind(R.id.textViewNextTeam)
+    TextView tvNextTeam;
+
+    @Bind(R.id.textViewRound)
+    TextView tvNextRound;
+
     private ResultsPresenter presenter;
     private SharedPreference sharedPreference;
 
@@ -38,6 +45,9 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView{
 
         presenter = new ResultsPresenterImpl(this);
         presenter.getResults();
+        presenter.startGame();
+        presenter.getNextTeam();
+        presenter.getRound();
 
         this.runListeners();
     }
@@ -55,6 +65,16 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView{
     public void showResults(ArrayList<Team> arrayOfTeams) {
         TeamAdapter adapter = new TeamAdapter(this, arrayOfTeams, true);
         lvResults.setAdapter(adapter);
+    }
+
+    @Override
+    public void showNextTeam(String teamName) {
+        tvNextTeam.setText(teamName);
+    }
+
+    @Override
+    public void showRound(int round) {
+        tvNextRound.setText(String.valueOf(round));
     }
 
     @Override

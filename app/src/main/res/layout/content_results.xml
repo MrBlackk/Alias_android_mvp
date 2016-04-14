@@ -31,7 +31,7 @@
         android:layout_below="@+id/textViewResults"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/button_results_start" />
+        android:layout_above="@+id/textViewNextTeamLabel" />
 
     <Button
         android:layout_width="wrap_content"
@@ -41,5 +41,44 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="73dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/results_text_round"
+        android:id="@+id/textViewRoundLabel"
+        android:layout_above="@+id/button_results_start"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/results_text_next_team"
+        android:id="@+id/textViewNextTeamLabel"
+        android:layout_above="@+id/textViewRoundLabel"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="-"
+        android:id="@+id/textViewNextTeam"
+        android:layout_below="@+id/listViewResults"
+        android:layout_toRightOf="@+id/textViewNextTeamLabel"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="-"
+        android:id="@+id/textViewRound"
+        android:layout_above="@+id/button_results_start"
+        android:layout_toRightOf="@+id/textViewRoundLabel"
+        android:layout_toEndOf="@+id/textViewRoundLabel" />
 
 </RelativeLayout>
