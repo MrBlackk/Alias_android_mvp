@@ -1,6 +1,5 @@
 package com.mrb.alias.game;
 
-import android.database.SQLException;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -8,15 +7,15 @@ import android.widget.TextView;
 import com.mrb.alias.R;
 import com.mrb.alias.utils.DataBaseHelper;
 
-import java.io.IOException;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity implements GameView{
 
     @Bind(R.id.textView5)
     TextView tvWord;
+
+    GamePresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,33 +23,20 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
         ButterKnife.bind(this);
 
-//        DataBaseHelper myDbHelper = new DataBaseHelper(this);
-        DataBaseHelper myDbHelper;
-        myDbHelper = new DataBaseHelper(this);
+        presenter = new GamePresenterImpl(this);
 
-        try {
+        presenter.getRandomWord();
+    }
 
-            myDbHelper.createDataBase();
-
-        } catch (IOException ioe) {
-
-            throw new Error("Unable to create database");
-
-        }
-
-        try {
-
-            myDbHelper.openDataBase();
-
-        }catch(SQLException sqle){
-
-            throw sqle;
-
-        }
-
-        String word = myDbHelper.getRandomWord();
-
+    @Override
+    public void showWord(String word) {
         tvWord.setText(word);
     }
 
+    @Override
+    public DataBaseHelper getDataBaseHelper() {
+        DataBaseHelper myDbHelper;
+        myDbHelper = new DataBaseHelper(this);
+        return myDbHelper;
+    }
 }
