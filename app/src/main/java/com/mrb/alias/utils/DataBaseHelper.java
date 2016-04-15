@@ -149,19 +149,30 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
-    public String getFirstWord() {
+    public String getRandomWord() {
 
         final String TABLE_NAME = "words";
+        final String COLUMN_NAME = "words";
 
-        String selectQuery = "SELECT  * FROM " + TABLE_NAME;
+        String selectQuery = "SELECT  " + COLUMN_NAME + " FROM " + TABLE_NAME;
         SQLiteDatabase db  = this.getReadableDatabase();
         Cursor cursor      = db.rawQuery(selectQuery, null);
 
+        int count = cursor.getCount();
+
+        String[] arr = new String[count];
+        int idx = 0;
         cursor.moveToFirst();
-        cursor.moveToNext();
-        String data = cursor.getString(cursor.getPosition());
+        while (!cursor.isAfterLast()){
+            arr[idx] = cursor.getString(0);
+            idx++;
+            cursor.moveToNext();
+        }
         cursor.close();
-        return data;
+
+        int rand = (int) (Math.random() * count);
+
+        return arr[rand];
     }
 
     // Add your public helper methods to access and get content from the database.

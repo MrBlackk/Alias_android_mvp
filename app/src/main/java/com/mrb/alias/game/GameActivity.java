@@ -48,7 +48,7 @@ public class GameActivity extends AppCompatActivity {
 
         }
 
-        String word = myDbHelper.getFirstWord();
+        String word = myDbHelper.getRandomWord();
 
         tvWord.setText(word);
     }
