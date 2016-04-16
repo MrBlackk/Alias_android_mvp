@@ -149,30 +149,45 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    public int getCountByColumnAndTable(String columnName, String tableName){
+        String selectQuery = "SELECT COUNT(" + columnName + ") FROM " + tableName;
+
+        SQLiteDatabase db  = this.getReadableDatabase();
+
+        Cursor cursor      = db.rawQuery(selectQuery, null);
+        cursor.moveToFirst();
+        int count = cursor.getInt(0);
+        cursor.close();
+
+        return count;
+    }
+
+
     public String getRandomWord() {
 
         final String TABLE_NAME = "words";
         final String COLUMN_NAME = "words";
+        final String ID_COULMN = "_id";
 
-        String selectQuery = "SELECT  " + COLUMN_NAME + " FROM " + TABLE_NAME;
-        SQLiteDatabase db  = this.getReadableDatabase();
-        Cursor cursor      = db.rawQuery(selectQuery, null);
-
-        int count = cursor.getCount();
-
-        String[] arr = new String[count];
-        int idx = 0;
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
-            arr[idx] = cursor.getString(0);
-            idx++;
-            cursor.moveToNext();
-        }
-        cursor.close();
+        int count = getCountByColumnAndTable(COLUMN_NAME, TABLE_NAME);
 
         int rand = (int) (Math.random() * count);
 
-        return arr[rand];
+        int id = rand + 1;
+
+        String query = "SELECT  " + COLUMN_NAME + " FROM " + TABLE_NAME + " WHERE " + ID_COULMN + "=" + id;
+
+        SQLiteDatabase db  = this.getReadableDatabase();
+        Cursor cursor      = db.rawQuery(query, null);
+
+        cursor.moveToFirst();
+
+        String word = cursor.getString(0);
+
+        cursor.close();
+
+        return word;
     }
 
     // Add your public helper methods to access and get content from the database.

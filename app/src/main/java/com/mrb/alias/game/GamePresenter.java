@@ -6,4 +6,6 @@ package com.mrb.alias.game;
 public interface GamePresenter {
 
     void getRandomWord();
+    void onPlusButtonClick();
+    void onMinusButtonClick();
 }

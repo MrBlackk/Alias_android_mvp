@@ -32,4 +32,8 @@
     <string name="results_text_round">Раунд:</string>
 
 
+    <string name="game_text_minus">-</string>
+    <string name="game_text_plus">+</string>
+
+
 </resources>
