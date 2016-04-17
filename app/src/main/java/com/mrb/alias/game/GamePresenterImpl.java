@@ -1,5 +1,6 @@
 package com.mrb.alias.game;
 
+import com.mrb.alias.results.GameSingleton;
 import com.mrb.alias.utils.DataBaseHelper;
 
 /**
@@ -9,11 +10,12 @@ public class GamePresenterImpl implements GamePresenter {
 
     GameView gameView;
     DataBaseHelper dataBaseHelper;
+    GameSingleton game;
 
     public GamePresenterImpl(GameView gameView, DataBaseHelper dataBaseHelper) {
         this.gameView = gameView;
         this.dataBaseHelper = dataBaseHelper;
-
+        getGame();
     }
 
     @Override
@@ -42,7 +44,13 @@ public class GamePresenterImpl implements GamePresenter {
 
     @Override
     public void startTimer() {
-        gameView.startTimer(15);
+        int timeOnRound = game.getTimeOnRound();
+        gameView.startTimer(timeOnRound);
+    }
+
+    @Override
+    public void getGame() {
+        game = gameView.getGame();
     }
 
     private void onButtonClick() {

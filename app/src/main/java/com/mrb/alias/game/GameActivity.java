@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.mrb.alias.R;
+import com.mrb.alias.results.GameSingleton;
 import com.mrb.alias.round.RoundActivity;
 import com.mrb.alias.utils.DataBaseHelper;
+import com.mrb.alias.utils.SharedPreference;
 
 import java.io.IOException;
 
@@ -35,12 +37,14 @@ public class GameActivity extends AppCompatActivity implements GameView{
     GamePresenter presenter;
     DataBaseHelper dataBaseHelper;
     private CountDownTimer countDownTimer;
+    private SharedPreference sharedPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         ButterKnife.bind(this);
+        sharedPreference = new SharedPreference();
 
         dataBaseHelper = new DataBaseHelper(this);
         try {
@@ -100,6 +104,11 @@ public class GameActivity extends AppCompatActivity implements GameView{
     public void navigateToRoundResults() {
         startActivity(new Intent(this, RoundActivity.class));
         finish();
+    }
+
+    @Override
+    public GameSingleton getGame() {
+        return sharedPreference.getGame(this);
     }
 
 }

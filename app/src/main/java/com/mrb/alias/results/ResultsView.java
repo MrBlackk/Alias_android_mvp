@@ -15,4 +15,7 @@ public interface ResultsView {
     void navigateToGame();
     ArrayList<Team> getTeams();
     void saveTeams(ArrayList<Team> arrayList);
+    int getSettingsTime();
+    void saveGame(GameSingleton game);
+
 }

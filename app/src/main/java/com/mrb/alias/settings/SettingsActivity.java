@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.mrb.alias.R;
 import com.mrb.alias.results.ResultsActivity;
+import com.mrb.alias.utils.SharedPreference;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -36,12 +37,14 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView{
     Button buttonGoTeam;
 
     private SettingsPresenter presenter;
+    private SharedPreference sharedPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
+        sharedPreference = new SharedPreference();
 
         presenter = new SettingsPresenterImpl(this);
         this.runListeners();
@@ -103,5 +106,10 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView{
     public void navigateToResults() {
         startActivity(new Intent(this, ResultsActivity.class));
         finish();
+    }
+
+    @Override
+    public void saveGameSettings(int time, int point, String level) {
+        sharedPreference.saveSettings(this, time, point, level);
     }
 }

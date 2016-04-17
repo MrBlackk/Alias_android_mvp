@@ -10,4 +10,5 @@ public interface ResultsPresenter {
     void startGame();
     void getRound();
     void getNextTeam();
+    void saveGame();
 }

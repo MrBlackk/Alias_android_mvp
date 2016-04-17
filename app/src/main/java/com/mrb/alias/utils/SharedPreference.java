@@ -20,6 +20,9 @@ public class SharedPreference {
     public static final String PREFS_NAME = "ALIAS_PREFS";
     public static final String TEAMS = "Teams";
     public static final String GAME = "Game";
+    public static final String TIME = "Time";
+    public static final String POINTS = "Points";
+    public static final String LEVEL = "Level";
 
     public void saveTeams(Context context, ArrayList<Team> teams){
         SharedPreferences settings;
@@ -83,4 +86,49 @@ public class SharedPreference {
         }
         return game;
     }
+
+    public void saveSettings(Context context, int time, int points, String level){
+        SharedPreferences settings;
+        Editor editor;
+
+        settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        editor = settings.edit();
+
+        editor.putInt(TIME, time);
+        editor.putInt(POINTS, points);
+        editor.putString(LEVEL, level);
+
+        editor.apply();
+    }
+
+    public int getTime(Context context){
+        SharedPreferences settings;
+        int time;
+
+        settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+
+        time = settings.getInt(TIME, 0);
+        return time;
+    }
+
+    public int getPoints(Context context){
+        SharedPreferences settings;
+        int points;
+
+        settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        
+        points = settings.getInt(POINTS, 0);
+        return points;
+    }
+
+    public String getLevel(Context context){
+        SharedPreferences settings;
+        String level;
+
+        settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+
+        level = settings.getString(LEVEL, null);
+        return level;
+    }
+
 }

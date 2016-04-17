@@ -25,6 +25,7 @@ public class ResultsPresenterImpl implements ResultsPresenter {
 
     @Override
     public void onStartButtonClick() {
+        saveGame();
         resultsView.navigateToGame();
     }
 
@@ -47,5 +48,14 @@ public class ResultsPresenterImpl implements ResultsPresenter {
     public void getNextTeam() {
         Team currentTeam = game.getCurrentTeam();
         resultsView.showNextTeam(currentTeam.getName());
+    }
+
+    @Override
+    public void saveGame() {
+        int time = resultsView.getSettingsTime();
+
+        game.setTimeOnRound(time);
+
+        resultsView.saveGame(game);
     }
 }

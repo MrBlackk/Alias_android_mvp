@@ -92,4 +92,14 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView{
     public void saveTeams(ArrayList<Team> arrayList) {
         sharedPreference.saveTeams(this,arrayList);
     }
+
+    @Override
+    public int getSettingsTime() {
+        return sharedPreference.getTime(this);
+    }
+
+    @Override
+    public void saveGame(GameSingleton game) {
+        sharedPreference.saveGame(this, game);
+    }
 }

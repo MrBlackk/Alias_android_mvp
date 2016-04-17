@@ -6,4 +6,5 @@ package com.mrb.alias.settings;
 public interface SettingsPresenter {
 
     void onNextButtonClick();
+    void saveGameSettings();
 }

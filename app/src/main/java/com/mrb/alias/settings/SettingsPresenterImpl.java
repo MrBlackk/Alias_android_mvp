@@ -13,6 +13,16 @@ public class SettingsPresenterImpl implements SettingsPresenter {
 
     @Override
     public void onNextButtonClick() {
+        saveGameSettings();
         settingsView.navigateToResults();
+    }
+
+    @Override
+    public void saveGameSettings() {
+        int time = settingsView.getTimeOnRound();
+        int points = settingsView.getPointsOnRound();
+        String level = settingsView.getLevelValue();
+
+        settingsView.saveGameSettings(time, points, level);
     }
 }

@@ -9,4 +9,5 @@ public interface SettingsView {
     int getPointsOnRound();
     String getLevelValue();
     void navigateToResults();
+    void saveGameSettings(int time, int point, String level);
 }
