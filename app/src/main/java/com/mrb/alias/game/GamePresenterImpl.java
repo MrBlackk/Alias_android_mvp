@@ -35,6 +35,16 @@ public class GamePresenterImpl implements GamePresenter {
         onButtonClick();
     }
 
+    @Override
+    public void onTimeFinished() {
+        gameView.navigateToRoundResults();
+    }
+
+    @Override
+    public void startTimer() {
+        gameView.startTimer(15);
+    }
+
     private void onButtonClick() {
         getRandomWord();
     }

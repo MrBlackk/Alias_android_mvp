@@ -6,4 +6,6 @@ package com.mrb.alias.game;
 public interface GameView {
 
     void showWord(String word);
+    void startTimer(int time);
+    void navigateToRoundResults();
 }

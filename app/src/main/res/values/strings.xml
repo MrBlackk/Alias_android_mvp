@@ -31,9 +31,11 @@
     <string name="results_text_next_team">Наступна команда:</string>
     <string name="results_text_round">Раунд:</string>
 
-
     <string name="game_text_minus">-</string>
     <string name="game_text_plus">+</string>
+
+    <string name="title_activity_round">RoundActivity</string>
+    <string name="round_label">Результати за раунд:</string>
 
 
 </resources>

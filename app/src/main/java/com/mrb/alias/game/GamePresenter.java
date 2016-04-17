@@ -8,4 +8,6 @@ public interface GamePresenter {
     void getRandomWord();
     void onPlusButtonClick();
     void onMinusButtonClick();
+    void onTimeFinished();
+    void startTimer();
 }

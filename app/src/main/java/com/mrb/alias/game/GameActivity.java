@@ -1,13 +1,16 @@
 package com.mrb.alias.game;
 
+import android.content.Intent;
 import android.database.SQLException;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.mrb.alias.R;
+import com.mrb.alias.round.RoundActivity;
 import com.mrb.alias.utils.DataBaseHelper;
 
 import java.io.IOException;
@@ -20,6 +23,9 @@ public class GameActivity extends AppCompatActivity implements GameView{
     @Bind(R.id.textViewWord)
     TextView tvWord;
 
+    @Bind(R.id.tVtimer)
+    TextView tvTimer;
+
     @Bind(R.id.buttonPlus)
     Button btnPlus;
 
@@ -28,6 +34,7 @@ public class GameActivity extends AppCompatActivity implements GameView{
 
     GamePresenter presenter;
     DataBaseHelper dataBaseHelper;
+    private CountDownTimer countDownTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +57,7 @@ public class GameActivity extends AppCompatActivity implements GameView{
         presenter = new GamePresenterImpl(this, dataBaseHelper);
 
         presenter.getRandomWord();
+        presenter.startTimer();
         runListeners();
     }
 
@@ -71,6 +79,27 @@ public class GameActivity extends AppCompatActivity implements GameView{
     @Override
     public void showWord(String word) {
         tvWord.setText(word);
+    }
+
+    @Override
+    public void startTimer(int time) {
+        countDownTimer = new CountDownTimer(time * 1000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                tvTimer.setText(String.valueOf(millisUntilFinished / 1000));
+            }
+
+            @Override
+            public void onFinish() {
+                presenter.onTimeFinished();
+            }
+        }.start();
+    }
+
+    @Override
+    public void navigateToRoundResults() {
+        startActivity(new Intent(this, RoundActivity.class));
+        finish();
     }
 
 }
