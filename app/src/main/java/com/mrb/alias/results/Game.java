@@ -3,6 +3,7 @@ package com.mrb.alias.results;
 import com.mrb.alias.team.Team;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by chv on 14.04.2016.
@@ -17,7 +18,7 @@ public class Game {
     private int round;
     private int maxPoints;
     private int timeOnRound;
-
+    private HashMap<String, Boolean> currentResults = new HashMap<>();
     private String level;
 
     private Game() {
@@ -29,6 +30,18 @@ public class Game {
             instance = new Game();
         }
         return instance;
+    }
+
+    public HashMap<String, Boolean> getCurrentResults() {
+        return currentResults;
+    }
+
+    public void addCurrentResult(String word, Boolean isGuessed) {
+        this.currentResults.put(word, isGuessed);
+    }
+
+    public void clearCurrentResults(){
+        this.currentResults.clear();
     }
 
     public String getLevel() {

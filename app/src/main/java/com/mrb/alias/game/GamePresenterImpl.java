@@ -11,6 +11,7 @@ public class GamePresenterImpl implements GamePresenter {
     GameView gameView;
     DataBaseHelper dataBaseHelper;
     Game game;
+    String currentWord;
 
     public GamePresenterImpl(GameView gameView, DataBaseHelper dataBaseHelper) {
         this.gameView = gameView;
@@ -20,20 +21,20 @@ public class GamePresenterImpl implements GamePresenter {
 
     @Override
     public void getRandomWord() {
-        String word = dataBaseHelper.getRandomWord();
+        currentWord = dataBaseHelper.getRandomWord();
 
-        gameView.showWord(word);
+        gameView.showWord(currentWord);
     }
 
     @Override
     public void onPlusButtonClick() {
-
+        addWordToResults(currentWord, true);
         onButtonClick();
     }
 
     @Override
     public void onMinusButtonClick() {
-
+        addWordToResults(currentWord, false);
         onButtonClick();
     }
 
@@ -47,6 +48,11 @@ public class GamePresenterImpl implements GamePresenter {
     public void startTimer() {
         int timeOnRound = game.getTimeOnRound();
         gameView.startTimer(timeOnRound);
+    }
+
+    @Override
+    public void addWordToResults(String word, Boolean isGuessed) {
+        game.addCurrentResult(word, isGuessed);
     }
 
     private void onButtonClick() {

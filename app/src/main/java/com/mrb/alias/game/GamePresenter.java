@@ -10,4 +10,5 @@ public interface GamePresenter {
     void onMinusButtonClick();
     void onTimeFinished();
     void startTimer();
+    void addWordToResults(String word, Boolean isGuessed);
 }
