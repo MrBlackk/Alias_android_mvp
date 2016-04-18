@@ -1,11 +1,15 @@
 package com.mrb.alias.round;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.mrb.alias.R;
 import com.mrb.alias.results.Game;
+import com.mrb.alias.results.ResultsActivity;
 import com.mrb.alias.utils.SharedPreference;
 
 import java.util.HashMap;
@@ -17,6 +21,9 @@ public class RoundActivity extends AppCompatActivity implements RoundView{
 
     @Bind(R.id.lvWords)
     ListView lvWords;
+
+    @Bind(R.id.buttonNext)
+    Button btnNext;
 
     private SharedPreference sharedPreference;
     private RoundPresenter presenter;
@@ -31,12 +38,29 @@ public class RoundActivity extends AppCompatActivity implements RoundView{
 
         presenter = new RoundPresenterImpl(this);
         presenter.getListOfWords();
+
+        runListeners();
+    }
+
+    protected void runListeners(){
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onNextButtonClick();
+            }
+        });
     }
 
 
     @Override
     public Game loadGame() {
         return sharedPreference.loadGame(this);
+    }
+
+    @Override
+    public void navigateToResults() {
+        startActivity(new Intent(this, ResultsActivity.class));
+        finish();
     }
 
     @Override

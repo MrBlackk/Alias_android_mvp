@@ -36,6 +36,7 @@
 
     <string name="title_activity_round">RoundActivity</string>
     <string name="round_label">Результати команди:</string>
+    <string name="round_next_button">Далі</string>
 
 
 </resources>

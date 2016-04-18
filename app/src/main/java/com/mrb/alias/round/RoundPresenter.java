@@ -6,4 +6,5 @@ package com.mrb.alias.round;
 public interface RoundPresenter {
 
     void getListOfWords();
+    void onNextButtonClick();
 }

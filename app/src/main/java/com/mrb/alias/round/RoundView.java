@@ -12,4 +12,5 @@ public interface RoundView {
     void showListOfWords(HashMap<String, Boolean> words);
     void saveGame(Game game);
     Game loadGame();
+    void navigateToResults();
 }

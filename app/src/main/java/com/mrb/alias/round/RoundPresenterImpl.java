@@ -19,4 +19,9 @@ public class RoundPresenterImpl implements RoundPresenter {
     public void getListOfWords() {
         roundView.showListOfWords(game.getCurrentResults());
     }
+
+    @Override
+    public void onNextButtonClick() {
+        roundView.navigateToResults();
+    }
 }
