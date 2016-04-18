@@ -10,5 +10,4 @@ public interface GamePresenter {
     void onMinusButtonClick();
     void onTimeFinished();
     void startTimer();
-    void getGame();
 }

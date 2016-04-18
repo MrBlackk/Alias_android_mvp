@@ -7,9 +7,9 @@ import java.util.ArrayList;
 /**
  * Created by chv on 14.04.2016.
  */
-public class GameSingleton {
+public class Game {
 
-    private static GameSingleton instance = null;
+    private static Game instance = null;
     private ArrayList<Team> teams;
     private Team currentTeam;
     private boolean isStarted;
@@ -18,15 +18,25 @@ public class GameSingleton {
     private int maxPoints;
     private int timeOnRound;
 
-    private GameSingleton() {
+    private String level;
+
+    private Game() {
 
     }
 
-    public static GameSingleton getInstance() {
+    public static Game getInstance() {
         if (instance == null) {
-            instance = new GameSingleton();
+            instance = new Game();
         }
         return instance;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public int getMaxPoints() {

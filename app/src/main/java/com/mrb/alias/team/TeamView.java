@@ -1,5 +1,7 @@
 package com.mrb.alias.team;
 
+import com.mrb.alias.results.Game;
+
 import java.util.ArrayList;
 
 /**
@@ -7,6 +9,7 @@ import java.util.ArrayList;
  */
 public interface TeamView {
     void navigateToSettings();
-    void showListOfUsers(ArrayList<Team> arrayList);
-    void saveTeams(ArrayList<Team> arrayList);
+    void showListOfTeams(ArrayList<Team> arrayList);
+    Game loadGame();
+    void saveGame(Game game);
 }

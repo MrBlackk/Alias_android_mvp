@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.mrb.alias.BuildConfig;
 import com.mrb.alias.R;
 import com.mrb.alias.team.TeamActivity;
+import com.mrb.alias.utils.SharedPreference;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -30,12 +31,14 @@ public class StartActivity extends AppCompatActivity implements StartView {
     TextView textViewVersion;
 
     private StartPresenter presenter;
+    private SharedPreference sharedPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         ButterKnife.bind(this);
+        sharedPreference = new SharedPreference();
 
         presenter = new StartPresenterImpl(this);
         this.runListeners();
@@ -80,6 +83,11 @@ public class StartActivity extends AppCompatActivity implements StartView {
     @Override
     public void showRules() {
         Toast.makeText(getApplicationContext(),"There are no rules!", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void clearPreferences() {
+        sharedPreference.clearPreferences(this);
     }
 
     @Override

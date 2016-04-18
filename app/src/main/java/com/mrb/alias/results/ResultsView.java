@@ -13,9 +13,7 @@ public interface ResultsView {
     void showNextTeam(String teamName);
     void showRound(int round);
     void navigateToGame();
-    ArrayList<Team> getTeams();
-    void saveTeams(ArrayList<Team> arrayList);
-    int getSettingsTime();
-    void saveGame(GameSingleton game);
+    void saveGame(Game game);
+    Game loadGame();
 
 }

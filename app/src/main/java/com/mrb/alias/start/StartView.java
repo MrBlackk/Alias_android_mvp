@@ -7,4 +7,5 @@ public interface StartView {
     void navigateToTeam();
     void exit();
     void showRules();
+    void clearPreferences();
 }

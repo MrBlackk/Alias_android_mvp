@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.mrb.alias.R;
-import com.mrb.alias.results.GameSingleton;
+import com.mrb.alias.results.Game;
 import com.mrb.alias.round.RoundActivity;
 import com.mrb.alias.utils.DataBaseHelper;
 import com.mrb.alias.utils.SharedPreference;
@@ -107,8 +107,13 @@ public class GameActivity extends AppCompatActivity implements GameView{
     }
 
     @Override
-    public GameSingleton getGame() {
-        return sharedPreference.getGame(this);
+    public Game loadGame() {
+        return sharedPreference.loadGame(this);
+    }
+
+    @Override
+    public void saveGame(Game game) {
+        sharedPreference.saveGame(this, game);
     }
 
 }

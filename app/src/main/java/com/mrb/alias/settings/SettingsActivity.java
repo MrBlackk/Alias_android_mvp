@@ -10,6 +10,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.mrb.alias.R;
+import com.mrb.alias.results.Game;
 import com.mrb.alias.results.ResultsActivity;
 import com.mrb.alias.utils.SharedPreference;
 
@@ -109,7 +110,12 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView{
     }
 
     @Override
-    public void saveGameSettings(int time, int point, String level) {
-        sharedPreference.saveSettings(this, time, point, level);
+    public Game loadGame() {
+        return sharedPreference.loadGame(this);
+    }
+
+    @Override
+    public void saveGame(Game game) {
+        sharedPreference.saveGame(this, game);
     }
 }

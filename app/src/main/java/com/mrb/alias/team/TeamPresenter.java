@@ -7,5 +7,4 @@ public interface TeamPresenter {
 
     void onNextToSettingsClick();
     void createTeams();
-    String getRandomName();
 }

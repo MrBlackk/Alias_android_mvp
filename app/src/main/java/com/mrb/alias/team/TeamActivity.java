@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.mrb.alias.R;
+import com.mrb.alias.results.Game;
 import com.mrb.alias.settings.SettingsActivity;
 import com.mrb.alias.utils.SharedPreference;
 
@@ -57,13 +58,18 @@ public class TeamActivity extends AppCompatActivity implements TeamView{
     }
 
     @Override
-    public void showListOfUsers(ArrayList<Team> arrayOfTeams) {
+    public void showListOfTeams(ArrayList<Team> arrayOfTeams) {
         TeamAdapter adapter = new TeamAdapter(this, arrayOfTeams, false);
         lvTeams.setAdapter(adapter);
     }
 
     @Override
-    public void saveTeams(ArrayList<Team> arrayList) {
-        sharedPreference.saveTeams(this,arrayList);
+    public Game loadGame() {
+       return sharedPreference.loadGame(this);
+    }
+
+    @Override
+    public void saveGame(Game game) {
+        sharedPreference.saveGame(this,game);
     }
 }

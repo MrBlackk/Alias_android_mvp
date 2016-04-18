@@ -1,14 +1,18 @@
 package com.mrb.alias.settings;
 
+import com.mrb.alias.results.Game;
+
 /**
  * Created by chvs on 02.04.2016.
  */
 public class SettingsPresenterImpl implements SettingsPresenter {
 
     SettingsView settingsView;
+    Game game;
 
     public SettingsPresenterImpl(SettingsView settingsView) {
         this.settingsView = settingsView;
+        game = this.settingsView.loadGame();
     }
 
     @Override
@@ -23,6 +27,10 @@ public class SettingsPresenterImpl implements SettingsPresenter {
         int points = settingsView.getPointsOnRound();
         String level = settingsView.getLevelValue();
 
-        settingsView.saveGameSettings(time, points, level);
+        game.setTimeOnRound(time);
+        game.setMaxPoints(points);
+        game.setLevel(level);
+
+        settingsView.saveGame(game);
     }
 }

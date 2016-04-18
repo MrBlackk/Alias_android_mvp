@@ -13,6 +13,7 @@ public class StartPresenterImpl implements StartPresenter {
 
     @Override
     public void onNewGameButtonClick() {
+        startView.clearPreferences();
         startView.navigateToTeam();
     }
 
