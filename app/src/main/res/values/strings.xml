@@ -35,7 +35,7 @@
     <string name="game_text_plus">+</string>
 
     <string name="title_activity_round">RoundActivity</string>
-    <string name="round_label">Результати за раунд:</string>
+    <string name="round_label">Результати команди:</string>
 
 
 </resources>
