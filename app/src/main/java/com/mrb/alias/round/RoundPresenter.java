@@ -10,4 +10,6 @@ public interface RoundPresenter {
     void clearListOfCurrentWords();
     void setNextTeam();
     void setNextRound();
+    void addPointsToCurrentTeam(int points);
+    int getNumberOfPoints();
 }

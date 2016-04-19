@@ -4,6 +4,7 @@ import com.mrb.alias.results.Game;
 import com.mrb.alias.team.Team;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by chvs on 18.04.2016.
@@ -25,6 +26,7 @@ public class RoundPresenterImpl implements RoundPresenter {
 
     @Override
     public void onNextButtonClick() {
+        addPointsToCurrentTeam(getNumberOfPoints());
         setNextTeam();
         clearListOfCurrentWords();
         roundView.saveGame(game);
@@ -58,4 +60,38 @@ public class RoundPresenterImpl implements RoundPresenter {
         int currentRound = game.getRound();
         game.setRound(currentRound + 1);
     }
+
+    @Override
+    public void addPointsToCurrentTeam(int points) {
+        Team currentTeam = game.getCurrentTeam();
+        ArrayList<Team> teams = game.getTeams();
+
+        int currentPoints = currentTeam.getPoints();
+
+        int idx = teams.indexOf(currentTeam);
+
+        teams.get(idx).setPoints(currentPoints + points);
+        currentTeam.setPoints(currentPoints + points);
+    }
+
+    @Override
+    public int getNumberOfPoints() {
+        HashMap<String, Boolean> results = game.getCurrentResults();
+        int points = 0;
+
+        for (HashMap.Entry<String, Boolean> entry : results.entrySet()){
+            if(entry.getValue() == null){
+                continue;
+            }
+
+            if (entry.getValue()){
+                points++;
+            } else {
+                points--;
+            }
+        }
+
+        return points;
+    }
+
 }
