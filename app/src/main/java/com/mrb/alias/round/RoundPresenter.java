@@ -7,4 +7,7 @@ public interface RoundPresenter {
 
     void getListOfWords();
     void onNextButtonClick();
+    void clearListOfCurrentWords();
+    void setNextTeam();
+    void setNextRound();
 }
