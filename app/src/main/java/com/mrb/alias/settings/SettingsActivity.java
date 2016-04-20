@@ -50,6 +50,8 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView{
         presenter = new SettingsPresenterImpl(this);
         this.runListeners();
 
+        timeSeekBar.setProgress(10);
+        pointsSeekBar.setProgress(10);
     }
 
     protected void runListeners(){
