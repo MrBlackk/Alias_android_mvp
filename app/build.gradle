@@ -4,14 +4,14 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
 
-    def code = 5;
+    def code = 6;
 
     defaultConfig {
         applicationId "com.mrb.alias"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode code
-        versionName "0.2."+code
+        versionName "0.3."+code
     }
     buildTypes {
         release {
