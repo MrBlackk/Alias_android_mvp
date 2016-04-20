@@ -22,4 +22,14 @@ public class WinPresenterImpl implements WinPresenter {
         String name = winnerTeam.getName();
         winView.showWinner(name);
     }
+
+    @Override
+    public void getResults() {
+        winView.showResults(game.getTeams());
+    }
+
+    @Override
+    public void onGoToMenuButtonClick() {
+        winView.navigateToMenu();
+    }
 }

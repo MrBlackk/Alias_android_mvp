@@ -31,4 +31,21 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textViewWinnerLabel"
         android:layout_toEndOf="@+id/textViewWinnerLabel" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/win_button_to_menu"
+        android:id="@+id/buttonGoToMenu"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="62dp" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listViewWinResults"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/buttonGoToMenu"
+        android:layout_below="@+id/textViewWinnerLabel" />
 </RelativeLayout>

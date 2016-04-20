@@ -6,4 +6,6 @@ package com.mrb.alias.win;
 public interface WinPresenter {
 
     void getWinner();
+    void getResults();
+    void onGoToMenuButtonClick();
 }

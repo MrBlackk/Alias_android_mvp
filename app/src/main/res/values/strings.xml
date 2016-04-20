@@ -40,6 +40,7 @@
 
     <string name="title_activity_win">WinActivity</string>
     <string name="win_winner_label">Переможець:</string>
+    <string name="win_button_to_menu">В меню</string>
 
 
 </resources>
