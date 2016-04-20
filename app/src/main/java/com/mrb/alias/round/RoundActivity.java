@@ -11,6 +11,7 @@ import com.mrb.alias.R;
 import com.mrb.alias.results.Game;
 import com.mrb.alias.results.ResultsActivity;
 import com.mrb.alias.utils.SharedPreference;
+import com.mrb.alias.win.WinActivity;
 
 import java.util.HashMap;
 
@@ -60,6 +61,12 @@ public class RoundActivity extends AppCompatActivity implements RoundView{
     @Override
     public void navigateToResults() {
         startActivity(new Intent(this, ResultsActivity.class));
+        finish();
+    }
+
+    @Override
+    public void navigateToWin() {
+        startActivity(new Intent(this, WinActivity.class));
         finish();
     }
 

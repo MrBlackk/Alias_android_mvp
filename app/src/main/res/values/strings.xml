@@ -38,5 +38,8 @@
     <string name="round_label">Результати команди:</string>
     <string name="round_next_button">Далі</string>
 
+    <string name="title_activity_win">WinActivity</string>
+    <string name="win_winner_label">Переможець:</string>
+
 
 </resources>

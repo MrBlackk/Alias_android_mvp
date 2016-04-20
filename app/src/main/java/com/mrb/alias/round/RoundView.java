@@ -13,4 +13,5 @@ public interface RoundView {
     void saveGame(Game game);
     Game loadGame();
     void navigateToResults();
+    void navigateToWin();
 }

@@ -37,6 +37,10 @@
         <activity
             android:name=".round.RoundActivity"
             android:label="@string/title_activity_round"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".win.WinActivity"
+            android:label="@string/title_activity_win"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

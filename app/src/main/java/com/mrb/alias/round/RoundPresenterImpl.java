@@ -30,7 +30,11 @@ public class RoundPresenterImpl implements RoundPresenter {
         setNextTeam();
         clearListOfCurrentWords();
         roundView.saveGame(game);
-        roundView.navigateToResults();
+        if(game.isStarted()){
+            roundView.navigateToResults();
+        } else {
+            roundView.navigateToWin();
+        }
     }
 
     @Override
@@ -50,6 +54,11 @@ public class RoundPresenterImpl implements RoundPresenter {
         if(currentIndex == size - 1){
             nextIndex = 0;
             setNextRound();
+            Team winner = getWinner();
+            if(winner != null){
+                nextIndex = teams.indexOf(winner);
+                game.setIsStarted(false);
+            }
         }
 
         game.setCurrentTeam(teams.get(nextIndex));
@@ -92,6 +101,23 @@ public class RoundPresenterImpl implements RoundPresenter {
         }
 
         return points;
+    }
+
+    @Override
+    public Team getWinner() {
+        int pointsToWin = game.getMaxPoints();
+        ArrayList<Team> teams = game.getTeams();
+        Team winner = null;
+        int maxPoints = teams.get(0).getPoints();
+
+       for(Team team: teams){
+           int points = team.getPoints();
+           if(points >= pointsToWin && points >= maxPoints){
+               winner = team;
+           }
+       }
+        
+        return winner;
     }
 
 }
