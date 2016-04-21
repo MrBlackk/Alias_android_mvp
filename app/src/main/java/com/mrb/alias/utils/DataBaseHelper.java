@@ -164,10 +164,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public String getRandomWord() {
+    public String getRandomWordFromColumn(String columnName) {
 
         final String TABLE_NAME = "words";
-        final String COLUMN_NAME = "words";
+        final String COLUMN_NAME = columnName;
         final String ID_COULMN = "_id";
 
         int count = getCountByColumnAndTable(COLUMN_NAME, TABLE_NAME);

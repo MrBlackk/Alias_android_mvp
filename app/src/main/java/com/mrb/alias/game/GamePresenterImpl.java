@@ -21,7 +21,16 @@ public class GamePresenterImpl implements GamePresenter {
 
     @Override
     public void getRandomWord() {
-        currentWord = dataBaseHelper.getRandomWord();
+        String column;
+        String level = game.getLevel();
+
+        if(level.equals("Початковий")){
+            column = "easy";
+        } else {
+            column = "medium";
+        }
+
+        currentWord = dataBaseHelper.getRandomWordFromColumn(column);
 
         gameView.showWord(currentWord);
     }
