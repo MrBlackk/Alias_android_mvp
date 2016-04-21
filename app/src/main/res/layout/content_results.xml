@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/results_text_results"
-        android:id="@+id/textViewResults"
+        android:id="@+id/results_tvResultsLabel"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -27,17 +27,17 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listViewResults"
-        android:layout_below="@+id/textViewResults"
+        android:id="@+id/results_lvResults"
+        android:layout_below="@+id/results_tvResultsLabel"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/textViewNextTeamLabel" />
+        android:layout_above="@+id/results_tvNextTeamLabel" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/results_button_start"
-        android:id="@+id/button_results_start"
+        android:id="@+id/results_btnStart"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="73dp" />
@@ -47,8 +47,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/results_text_round"
-        android:id="@+id/textViewRoundLabel"
-        android:layout_above="@+id/button_results_start"
+        android:id="@+id/results_tvRoundLabel"
+        android:layout_above="@+id/results_btnStart"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -57,8 +57,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/results_text_next_team"
-        android:id="@+id/textViewNextTeamLabel"
-        android:layout_above="@+id/textViewRoundLabel"
+        android:id="@+id/results_tvNextTeamLabel"
+        android:layout_above="@+id/results_tvRoundLabel"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -67,18 +67,18 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="-"
-        android:id="@+id/textViewNextTeam"
-        android:layout_below="@+id/listViewResults"
-        android:layout_toRightOf="@+id/textViewNextTeamLabel"/>
+        android:id="@+id/results_tvNextTeam"
+        android:layout_below="@+id/results_lvResults"
+        android:layout_toRightOf="@+id/results_tvNextTeamLabel"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="-"
-        android:id="@+id/textViewRound"
-        android:layout_above="@+id/button_results_start"
-        android:layout_toRightOf="@+id/textViewRoundLabel"
-        android:layout_toEndOf="@+id/textViewRoundLabel" />
+        android:id="@+id/results_tvRound"
+        android:layout_above="@+id/results_btnStart"
+        android:layout_toRightOf="@+id/results_tvRoundLabel"
+        android:layout_toEndOf="@+id/results_tvRoundLabel" />
 
 </RelativeLayout>

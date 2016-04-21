@@ -20,10 +20,10 @@ import butterknife.ButterKnife;
 
 public class RoundActivity extends AppCompatActivity implements RoundView{
 
-    @Bind(R.id.lvWords)
+    @Bind(R.id.round_lvWords)
     ListView lvWords;
 
-    @Bind(R.id.buttonNext)
+    @Bind(R.id.round_btnNext)
     Button btnNext;
 
     private SharedPreference sharedPreference;

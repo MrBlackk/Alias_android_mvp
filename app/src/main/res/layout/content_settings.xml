@@ -15,8 +15,8 @@
     <SeekBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBarTime"
-        android:layout_below="@+id/textViewTime"
+        android:id="@+id/settings_sbTime"
+        android:layout_below="@+id/settings_tvTimeLabel"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/settings_time"
-        android:id="@+id/textViewTime"
+        android:id="@+id/settings_tvTimeLabel"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -39,20 +39,20 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="0"
-        android:id="@+id/seekTimeValue"
-        android:layout_above="@+id/seekBarTime"
+        android:id="@+id/settings_tvTimeValue"
+        android:layout_above="@+id/settings_sbTime"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
     <SeekBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBarPoints"
+        android:id="@+id/settings_sbPoints"
         android:max="200"
         android:indeterminate="false"
-        android:layout_alignRight="@+id/seekBarTime"
-        android:layout_alignEnd="@+id/seekBarTime"
-        android:layout_below="@+id/textViewPoints"
+        android:layout_alignRight="@+id/settings_sbTime"
+        android:layout_alignEnd="@+id/settings_sbTime"
+        android:layout_below="@+id/settings_tvPointsLabel"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -61,8 +61,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/settings_points"
-        android:id="@+id/textViewPoints"
-        android:layout_below="@+id/seekBarTime"
+        android:id="@+id/settings_tvPointsLabel"
+        android:layout_below="@+id/settings_sbTime"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -71,16 +71,16 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="0"
-        android:id="@+id/seekPointsValue"
-        android:layout_above="@+id/seekBarPoints"
-        android:layout_alignRight="@+id/seekBarPoints"
-        android:layout_alignEnd="@+id/seekBarPoints" />
+        android:id="@+id/settings_tvPointsValue"
+        android:layout_above="@+id/settings_sbPoints"
+        android:layout_alignRight="@+id/settings_sbPoints"
+        android:layout_alignEnd="@+id/settings_sbPoints" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/settings_next"
-        android:id="@+id/button_go_game"
+        android:id="@+id/settings_btnNext"
         android:layout_marginBottom="70dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
@@ -88,8 +88,8 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner_level"
-        android:layout_below="@+id/textView"
+        android:id="@+id/settings_spnLevel"
+        android:layout_below="@+id/settings_tvLevel"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:entries="@array/array_levels"
@@ -101,8 +101,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/settings_level"
-        android:id="@+id/textView"
-        android:layout_below="@+id/seekBarPoints"
+        android:id="@+id/settings_tvLevel"
+        android:layout_below="@+id/settings_sbPoints"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="61dp" />

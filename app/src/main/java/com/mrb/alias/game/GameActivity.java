@@ -22,16 +22,16 @@ import butterknife.ButterKnife;
 
 public class GameActivity extends AppCompatActivity implements GameView{
 
-    @Bind(R.id.textViewWord)
+    @Bind(R.id.game_tvWord)
     TextView tvWord;
 
-    @Bind(R.id.tVtimer)
+    @Bind(R.id.game_tvTimer)
     TextView tvTimer;
 
-    @Bind(R.id.buttonPlus)
+    @Bind(R.id.game_btnPlus)
     Button btnPlus;
 
-    @Bind(R.id.buttonMinus)
+    @Bind(R.id.game_btnMinus)
     Button btnMinus;
 
     GamePresenter presenter;

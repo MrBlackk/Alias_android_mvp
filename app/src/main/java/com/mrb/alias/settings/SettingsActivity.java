@@ -19,23 +19,23 @@ import butterknife.ButterKnife;
 
 public class SettingsActivity extends AppCompatActivity implements SettingsView{
 
-    @Bind(R.id.seekBarTime)
-    SeekBar timeSeekBar;
+    @Bind(R.id.settings_sbTime)
+    SeekBar sbTime;
 
-    @Bind(R.id.seekTimeValue)
-    TextView valueTimeSeek;
+    @Bind(R.id.settings_tvTimeValue)
+    TextView tvTimeValue;
 
-    @Bind(R.id.seekBarPoints)
-    SeekBar pointsSeekBar;
+    @Bind(R.id.settings_sbPoints)
+    SeekBar sbPoints;
 
-    @Bind(R.id.seekPointsValue)
-    TextView valuePointsSeek;
+    @Bind(R.id.settings_tvPointsValue)
+    TextView tvPointsValue;
 
-    @Bind(R.id.spinner_level)
-    Spinner levelSpinner;
+    @Bind(R.id.settings_spnLevel)
+    Spinner spnLevel;
 
-    @Bind(R.id.button_go_game)
-    Button buttonGoTeam;
+    @Bind(R.id.settings_btnNext)
+    Button btnNext;
 
     private SettingsPresenter presenter;
     private SharedPreference sharedPreference;
@@ -50,39 +50,47 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView{
         presenter = new SettingsPresenterImpl(this);
         this.runListeners();
 
-        timeSeekBar.setProgress(10);
-        pointsSeekBar.setProgress(10);
+        sbTime.setProgress(10);
+        sbPoints.setProgress(10);
     }
 
     protected void runListeners(){
-        timeSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        sbTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 int seekStep = 10;
-                progress = Math.round(progress/seekStep) * seekStep;
+                progress = Math.round(progress / seekStep) * seekStep;
                 seekBar.setProgress(progress);
-                valueTimeSeek.setText(String.valueOf(progress));
+                tvTimeValue.setText(String.valueOf(progress));
             }
+
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
         });
-        pointsSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        sbPoints.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 int seekStep = 10;
-                progress = Math.round(progress/seekStep) * seekStep;
+                progress = Math.round(progress / seekStep) * seekStep;
                 seekBar.setProgress(progress);
-                valuePointsSeek.setText(String.valueOf(progress));
+                tvPointsValue.setText(String.valueOf(progress));
             }
+
             @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
             @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
         });
 
-        buttonGoTeam.setOnClickListener(new View.OnClickListener() {
+        btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.onNextButtonClick();
@@ -92,17 +100,17 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView{
 
     @Override
     public int getTimeOnRound() {
-        return timeSeekBar.getProgress();
+        return sbTime.getProgress();
     }
 
     @Override
     public int getPointsOnRound() {
-        return pointsSeekBar.getProgress();
+        return sbPoints.getProgress();
     }
 
     @Override
     public String getLevelValue() {
-        return String.valueOf(levelSpinner.getSelectedItem());
+        return String.valueOf(spnLevel.getSelectedItem());
     }
 
     @Override

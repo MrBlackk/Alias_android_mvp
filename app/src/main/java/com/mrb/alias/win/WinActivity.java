@@ -22,13 +22,13 @@ import butterknife.ButterKnife;
 
 public class WinActivity extends AppCompatActivity implements WinView {
 
-    @Bind(R.id.textViewWinner)
+    @Bind(R.id.win_tvWinner)
     TextView tvWinner;
 
-    @Bind(R.id.listViewWinResults)
+    @Bind(R.id.win_lvResults)
     ListView lvResults;
 
-    @Bind(R.id.buttonGoToMenu)
+    @Bind(R.id.win_btnGoToMenu)
     Button btnGoToMenu;
 
     private SharedPreference sharedPreference;

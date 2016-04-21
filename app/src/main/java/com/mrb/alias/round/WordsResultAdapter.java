@@ -48,10 +48,10 @@ public class WordsResultAdapter extends BaseAdapter {
 
         HashMap.Entry<String, Boolean> item = getItem(position);
 
-        TextView tvWord = (TextView) convertView.findViewById(R.id.tvWord);
+        TextView tvWord = (TextView) convertView.findViewById(R.id.results_adapter_tvWord);
         tvWord.setText(item.getKey());
 
-        TextView tvIsGuessed = (TextView) convertView.findViewById(R.id.tvIsGuessed);
+        TextView tvIsGuessed = (TextView) convertView.findViewById(R.id.results_adapter_tvIsGuessed);
         tvIsGuessed.setText(String.valueOf(item.getValue()));
 
         return convertView;

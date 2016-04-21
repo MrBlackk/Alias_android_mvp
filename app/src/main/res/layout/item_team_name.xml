@@ -10,21 +10,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/team_adapter_tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Name"
             android:textSize="24sp"/>
 
         <TextView
-            android:id="@+id/tvPoints"
+            android:id="@+id/team_adapter_tvPoints"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0"
             android:textSize="24sp"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/tvName"
-            android:layout_toEndOf="@+id/tvName"
+            android:layout_toRightOf="@+id/team_adapter_tvName"
+            android:layout_toEndOf="@+id/team_adapter_tvName"
             android:layout_marginLeft="54dp"
             android:layout_marginStart="54dp" />
     </RelativeLayout>

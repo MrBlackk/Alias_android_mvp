@@ -21,17 +21,17 @@ import butterknife.ButterKnife;
 
 public class ResultsActivity extends AppCompatActivity implements ResultsView{
 
-    @Bind(R.id.listViewResults)
+    @Bind(R.id.results_lvResults)
     ListView lvResults;
 
-    @Bind(R.id.button_results_start)
-    Button buttonStart;
+    @Bind(R.id.results_btnStart)
+    Button btnStart;
 
-    @Bind(R.id.textViewNextTeam)
+    @Bind(R.id.results_tvNextTeam)
     TextView tvNextTeam;
 
-    @Bind(R.id.textViewRound)
-    TextView tvNextRound;
+    @Bind(R.id.results_tvRound)
+    TextView tvRound;
 
     private ResultsPresenter presenter;
     private SharedPreference sharedPreference;
@@ -53,7 +53,7 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView{
     }
 
     protected void runListeners() {
-        buttonStart.setOnClickListener(new View.OnClickListener() {
+        btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.onStartButtonClick();
@@ -74,7 +74,7 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView{
 
     @Override
     public void showRound(int round) {
-        tvNextRound.setText(String.valueOf(round));
+        tvRound.setText(String.valueOf(round));
     }
 
     @Override

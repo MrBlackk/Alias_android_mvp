@@ -17,16 +17,16 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Test word"
-        android:id="@+id/textViewWord"
+        android:id="@+id/game_tvWord"
         android:layout_marginBottom="139dp"
-        android:layout_above="@+id/buttonMinus"
+        android:layout_above="@+id/game_btnMinus"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/game_text_minus"
-        android:id="@+id/buttonMinus"
+        android:id="@+id/game_btnMinus"
         android:layout_marginBottom="127dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -36,8 +36,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/game_text_plus"
-        android:id="@+id/buttonPlus"
-        android:layout_alignBottom="@+id/buttonMinus"
+        android:id="@+id/game_btnPlus"
+        android:layout_alignBottom="@+id/game_btnMinus"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Text"
-        android:id="@+id/tVtimer"
+        android:id="@+id/game_tvTimer"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />

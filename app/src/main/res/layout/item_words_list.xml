@@ -4,21 +4,21 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android">
         <TextView
-            android:id="@+id/tvWord"
+            android:id="@+id/results_adapter_tvWord"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="String"
             android:textSize="24sp"/>
 
         <TextView
-            android:id="@+id/tvIsGuessed"
+            android:id="@+id/results_adapter_tvIsGuessed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Boolean"
             android:textSize="24sp"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/tvWord"
-            android:layout_toEndOf="@+id/tvWord"
+            android:layout_toRightOf="@+id/results_adapter_tvWord"
+            android:layout_toEndOf="@+id/results_adapter_tvWord"
             android:layout_marginLeft="54dp"
             android:layout_marginStart="54dp" />
     </RelativeLayout>

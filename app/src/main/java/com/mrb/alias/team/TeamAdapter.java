@@ -36,9 +36,9 @@ public class TeamAdapter extends ArrayAdapter<Team> {
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_team_name, parent, false);
         }
-        TextView tvName = (TextView) convertView.findViewById(R.id.tvName);
+        TextView tvName = (TextView) convertView.findViewById(R.id.team_adapter_tvName);
         tvName.setText(team.getName());
-        TextView tvPoints = (TextView) convertView.findViewById(R.id.tvPoints);
+        TextView tvPoints = (TextView) convertView.findViewById(R.id.team_adapter_tvPoints);
 
         if(this.showPoints){
             tvPoints.setText(String.valueOf(team.getPoints()));

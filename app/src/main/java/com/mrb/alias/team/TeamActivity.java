@@ -19,10 +19,10 @@ import butterknife.ButterKnife;
 
 public class TeamActivity extends AppCompatActivity implements TeamView{
 
-    @Bind(R.id.button_next_to_settings)
-    Button buttonNextToSettings;
+    @Bind(R.id.team_btnNext)
+    Button btnNext;
 
-    @Bind(R.id.listViewTeams)
+    @Bind(R.id.team_lvTeams)
     ListView lvTeams;
 
     private TeamPresenter presenter;
@@ -43,7 +43,7 @@ public class TeamActivity extends AppCompatActivity implements TeamView{
     }
 
     private void runListeners() {
-        buttonNextToSettings.setOnClickListener(new View.OnClickListener() {
+        btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.onNextToSettingsClick();

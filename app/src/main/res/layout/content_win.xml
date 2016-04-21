@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/win_winner_label"
-        android:id="@+id/textViewWinnerLabel"
+        android:id="@+id/win_tvWinnerLabel"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -27,16 +27,16 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/textViewWinner"
+        android:id="@+id/win_tvWinner"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/textViewWinnerLabel"
-        android:layout_toEndOf="@+id/textViewWinnerLabel" />
+        android:layout_toRightOf="@+id/win_tvWinnerLabel"
+        android:layout_toEndOf="@+id/win_tvWinnerLabel" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/win_button_to_menu"
-        android:id="@+id/buttonGoToMenu"
+        android:id="@+id/win_btnGoToMenu"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="62dp" />
@@ -44,8 +44,8 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listViewWinResults"
+        android:id="@+id/win_lvResults"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/buttonGoToMenu"
-        android:layout_below="@+id/textViewWinnerLabel" />
+        android:layout_above="@+id/win_btnGoToMenu"
+        android:layout_below="@+id/win_tvWinnerLabel" />
 </RelativeLayout>

@@ -18,17 +18,17 @@ import butterknife.ButterKnife;
 
 public class StartActivity extends AppCompatActivity implements StartView {
 
-    @Bind(R.id.button_new_game)
-    Button newGameButton;
+    @Bind(R.id.start_btnNewGame)
+    Button btnNewGame;
 
-    @Bind(R.id.button_rules)
-    Button rulesButton;
+    @Bind(R.id.start_btnRules)
+    Button btnRules;
 
-    @Bind(R.id.button_exit)
-    Button exitButton;
+    @Bind(R.id.start_btnExit)
+    Button btnExit;
 
-    @Bind(R.id.textView_version)
-    TextView textViewVersion;
+    @Bind(R.id.start_tvVersion)
+    TextView tvVersion;
 
     private StartPresenter presenter;
     private SharedPreference sharedPreference;
@@ -45,23 +45,23 @@ public class StartActivity extends AppCompatActivity implements StartView {
 
         //Debug mode only
         String version = getString(R.string.start_version) + BuildConfig.VERSION_NAME;
-        textViewVersion.setText(version);
+        tvVersion.setText(version);
     }
 
     protected void runListeners() {
-        newGameButton.setOnClickListener(new View.OnClickListener() {
+        btnNewGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.onNewGameButtonClick();
             }
         });
-        exitButton.setOnClickListener(new View.OnClickListener() {
+        btnExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.onExitButtonClick();
             }
         });
-        rulesButton.setOnClickListener(new View.OnClickListener() {
+        btnRules.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.onRulesButtonClick();

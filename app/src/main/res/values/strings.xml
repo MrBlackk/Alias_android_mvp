@@ -1,21 +1,21 @@
 <resources>
     <string name="app_name">Alias</string>
+
     <string name="action_settings">Settings</string>
     <string name="title_activity_second">SecondActivity</string>
     <string name="second_page">Second Activity</string>
-    <string name="title_activity_start">StartActivity</string>
-    <string name="title_activity_settings">SettingsActivity</string>
-    <string name="title_activity_team">TeamActivity</string>
-    <string name="title_activity_game">GameActivity</string>
 
+    <string name="title_activity_start">StartActivity</string>
     <string name="start_new_game">Нова гра</string>
     <string name="start_rules">Правила</string>
     <string name="start_exit">Вийти</string>
     <string name="start_version">v.</string>
 
+    <string name="title_activity_team">TeamActivity</string>
     <string name="team_teams">Команди:</string>
     <string name="team_next">Далі</string>
 
+    <string name="title_activity_settings">SettingsActivity</string>
     <string name="settings_time">Час</string>
     <string name="settings_points">Кількість слів</string>
     <string name="settings_level">Рівень</string>
@@ -31,6 +31,7 @@
     <string name="results_text_next_team">Наступна команда:</string>
     <string name="results_text_round">Раунд:</string>
 
+    <string name="title_activity_game">GameActivity</string>
     <string name="game_text_minus">-</string>
     <string name="game_text_plus">+</string>
 

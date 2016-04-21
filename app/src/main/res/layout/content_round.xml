@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/round_label"
-        android:id="@+id/tvResultsLabel"
+        android:id="@+id/round_tvResultsLabel"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -25,17 +25,17 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lvWords"
+        android:id="@+id/round_lvWords"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/buttonNext"
-        android:layout_below="@+id/tvResultsLabel" />
+        android:layout_above="@+id/round_btnNext"
+        android:layout_below="@+id/round_tvResultsLabel" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/round_next_button"
-        android:id="@+id/buttonNext"
+        android:id="@+id/round_btnNext"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="51dp" />
