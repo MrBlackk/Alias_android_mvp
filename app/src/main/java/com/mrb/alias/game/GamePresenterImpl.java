@@ -4,10 +4,14 @@ import com.mrb.alias.results.Game;
 import com.mrb.alias.utils.DataBaseHelper;
 
 /**
- * Created by chv on 15.04.2016.
+ * Game Presenter Implementation
+ * Created by Volodymyr Chornyi on 15.04.2016.
  */
 public class GamePresenterImpl implements GamePresenter {
 
+    public static final String EASY_DROPDOWN = "Початковий";
+    public static final String COLUMN_EASY = "easy";
+    public static final String COLUMN_MEDIUM = "medium";
     GameView gameView;
     DataBaseHelper dataBaseHelper;
     Game game;
@@ -19,15 +23,17 @@ public class GamePresenterImpl implements GamePresenter {
         game = this.gameView.loadGame();
     }
 
-    @Override
-    public void getRandomWord() {
+    /**
+     * Get random word from database
+     */
+    private void getRandomWord() {
         String column;
         String level = game.getLevel();
 
-        if(level.equals("Початковий")){
-            column = "easy";
+        if (level.equals(EASY_DROPDOWN)) {
+            column = COLUMN_EASY;
         } else {
-            column = "medium";
+            column = COLUMN_MEDIUM;
         }
 
         currentWord = dataBaseHelper.getRandomWordFromColumn(column);
@@ -35,35 +41,60 @@ public class GamePresenterImpl implements GamePresenter {
         gameView.showWord(currentWord);
     }
 
+    /**
+     * On Plus button click
+     */
     @Override
     public void onPlusButtonClick() {
         addWordToResults(currentWord, true);
         onButtonClick();
     }
 
+    /**
+     * On Minus button click
+     */
     @Override
     public void onMinusButtonClick() {
         addWordToResults(currentWord, false);
         onButtonClick();
     }
 
+    /**
+     * On timer finished
+     */
     @Override
     public void onTimeFinished() {
         gameView.saveGame(game);
         gameView.navigateToRoundResults();
     }
 
-    @Override
-    public void startTimer() {
+    /**
+     * Start timer
+     */
+    private void startTimer() {
         int timeOnRound = game.getTimeOnRound();
         gameView.startTimer(timeOnRound);
     }
 
-    @Override
-    public void addWordToResults(String word, Boolean isGuessed) {
+    /**
+     * Add word to current results array list
+     */
+    private void addWordToResults(String word, Boolean isGuessed) {
         game.addCurrentResult(word, isGuessed);
     }
 
+    /**
+     * On start activity
+     */
+    @Override
+    public void onStart() {
+        getRandomWord();
+        startTimer();
+    }
+
+    /**
+     * On general button click
+     */
     private void onButtonClick() {
         getRandomWord();
     }

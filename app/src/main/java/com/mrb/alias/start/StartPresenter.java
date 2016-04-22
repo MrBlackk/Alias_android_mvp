@@ -1,11 +1,15 @@
 package com.mrb.alias.start;
 
 /**
- * Created by chv on 01.04.2016.
+ * Start Presenter interface
+ * Created by Volodymyr Chornyi on 01.04.2016.
  */
 public interface StartPresenter {
     void onNewGameButtonClick();
+
     void onExitButtonClick();
+
     void onRulesButtonClick();
+
     void onDestroy();
 }

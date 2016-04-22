@@ -18,7 +18,7 @@ import java.util.HashMap;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class RoundActivity extends AppCompatActivity implements RoundView{
+public class RoundActivity extends AppCompatActivity implements RoundView {
 
     @Bind(R.id.round_lvWords)
     ListView lvWords;
@@ -30,6 +30,9 @@ public class RoundActivity extends AppCompatActivity implements RoundView{
     private RoundPresenter presenter;
 
 
+    /**
+     * On create activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,12 +41,15 @@ public class RoundActivity extends AppCompatActivity implements RoundView{
         sharedPreference = new SharedPreference();
 
         presenter = new RoundPresenterImpl(this);
-        presenter.getListOfWords();
-
         runListeners();
+
+        presenter.onStart();
     }
 
-    protected void runListeners(){
+    /**
+     * Run listeners on button click and etc.
+     */
+    protected void runListeners() {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,29 +59,44 @@ public class RoundActivity extends AppCompatActivity implements RoundView{
     }
 
 
+    /**
+     * Load game
+     */
     @Override
     public Game loadGame() {
         return sharedPreference.loadGame(this);
     }
 
+    /**
+     * Navigate to Results activity
+     */
     @Override
     public void navigateToResults() {
         startActivity(new Intent(this, ResultsActivity.class));
         finish();
     }
 
+    /**
+     * Navigate to Win activity
+     */
     @Override
     public void navigateToWin() {
         startActivity(new Intent(this, WinActivity.class));
         finish();
     }
 
+    /**
+     * Show list of words
+     */
     @Override
     public void showListOfWords(HashMap<String, Boolean> words) {
         WordsResultAdapter adapter = new WordsResultAdapter(words);
         lvWords.setAdapter(adapter);
     }
 
+    /**
+     * Save game
+     */
     @Override
     public void saveGame(Game game) {
         sharedPreference.saveGame(this, game);

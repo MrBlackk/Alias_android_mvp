@@ -4,7 +4,8 @@ import com.mrb.alias.results.Game;
 import com.mrb.alias.team.Team;
 
 /**
- * Created by chvs on 20.04.2016.
+ * Win presenter implementation
+ * Created by Volodymyr Chornyi on 20.04.2016.
  */
 public class WinPresenterImpl implements WinPresenter {
 
@@ -16,18 +17,34 @@ public class WinPresenterImpl implements WinPresenter {
         game = this.winView.loadGame();
     }
 
+    /**
+     * On start activity
+     */
     @Override
-    public void getWinner() {
+    public void onStart() {
+        getWinner();
+        getResults();
+    }
+
+    /**
+     * Get winner name and show it
+     */
+    private void getWinner() {
         Team winnerTeam = game.getCurrentTeam();
         String name = winnerTeam.getName();
         winView.showWinner(name);
     }
 
-    @Override
-    public void getResults() {
+    /**
+     * Get results and show it
+     */
+    private void getResults() {
         winView.showResults(game.getTeams());
     }
 
+    /**
+     * On Go to Menu button click
+     */
     @Override
     public void onGoToMenuButtonClick() {
         winView.navigateToMenu();

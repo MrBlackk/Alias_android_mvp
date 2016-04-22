@@ -13,7 +13,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Created by chv on 15.04.2016.
+ * Data Base Helper class to work with database
+ * Created by Volodymyr Chornyi on 15.04.2016.
  */
 public class DataBaseHelper extends SQLiteOpenHelper {
 
@@ -29,6 +30,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     /**
      * Constructor
      * Takes and keeps a reference of the passed context in order to access to the application assets and resources.
+     *
      * @param context
      */
     public DataBaseHelper(Context context) {
@@ -39,14 +41,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     /**
      * Creates a empty database on the system and rewrites it with your own database.
-     * */
+     */
     public void createDataBase() throws IOException {
 
         boolean dbExist = checkDataBase();
 
-        if(dbExist){
+        if (dbExist) {
             //do nothing - database already exist
-        }else{
+        } else {
 
             //By calling this method and empty database will be created into the default system path
             //of your application so we are gonna be able to overwrite that database with our database.
@@ -67,23 +69,24 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     /**
      * Check if the database already exist to avoid re-copying the file each time you open the application.
+     *
      * @return true if it exists, false if it doesn't
      */
-    private boolean checkDataBase(){
+    private boolean checkDataBase() {
 
         SQLiteDatabase checkDB = null;
 
-        try{
+        try {
             String myPath = DB_PATH + DB_NAME;
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
-        }catch(SQLiteException e){
+        } catch (SQLiteException e) {
 
             //database does't exist yet.
 
         }
 
-        if(checkDB != null){
+        if (checkDB != null) {
 
             checkDB.close();
 
@@ -96,8 +99,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
      * Copies your database from your local assets-folder to the just created empty database in the
      * system folder, from where it can be accessed and handled.
      * This is done by transfering bytestream.
-     * */
-    private void copyDataBase() throws IOException{
+     */
+    private void copyDataBase() throws IOException {
 
         //Open your local db as the input stream
         InputStream myInput = myContext.getAssets().open(DB_NAME);
@@ -111,7 +114,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         //transfer bytes from the inputfile to the outputfile
         byte[] buffer = new byte[1024];
         int length;
-        while ((length = myInput.read(buffer))>0){
+        while ((length = myInput.read(buffer)) > 0) {
             myOutput.write(buffer, 0, length);
         }
 
@@ -133,7 +136,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     @Override
     public synchronized void close() {
 
-        if(myDataBase != null)
+        if (myDataBase != null)
             myDataBase.close();
 
         super.close();
@@ -150,12 +153,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public int getCountByColumnAndTable(String columnName, String tableName){
+    /**
+     * Get count by column and table
+     */
+    public int getCountByColumnAndTable(String columnName, String tableName) {
         String selectQuery = "SELECT COUNT(" + columnName + ") FROM " + tableName;
 
-        SQLiteDatabase db  = this.getReadableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor      = db.rawQuery(selectQuery, null);
+        Cursor cursor = db.rawQuery(selectQuery, null);
         cursor.moveToFirst();
         int count = cursor.getInt(0);
         cursor.close();
@@ -164,6 +170,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
 
+    /**
+     * Get random word from column
+     */
     public String getRandomWordFromColumn(String columnName) {
 
         final String TABLE_NAME = "words";
@@ -178,8 +187,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         String query = "SELECT  " + COLUMN_NAME + " FROM " + TABLE_NAME + " WHERE " + ID_COULMN + "=" + id;
 
-        SQLiteDatabase db  = this.getReadableDatabase();
-        Cursor cursor      = db.rawQuery(query, null);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
 
         cursor.moveToFirst();
 

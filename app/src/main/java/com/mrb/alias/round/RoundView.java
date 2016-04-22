@@ -5,13 +5,18 @@ import com.mrb.alias.results.Game;
 import java.util.HashMap;
 
 /**
- * Created by chvs on 18.04.2016.
+ * Round View interface
+ * Created by Volodymyr Chornyi on 18.04.2016.
  */
 public interface RoundView {
 
     void showListOfWords(HashMap<String, Boolean> words);
+
     void saveGame(Game game);
+
     Game loadGame();
+
     void navigateToResults();
+
     void navigateToWin();
 }

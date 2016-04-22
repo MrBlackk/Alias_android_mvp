@@ -1,7 +1,8 @@
 package com.mrb.alias.start;
 
 /**
- * Created by chv on 01.04.2016.
+ * Start Presenter implementation
+ * Created by Volodymyr Chornyi on 01.04.2016.
  */
 public class StartPresenterImpl implements StartPresenter {
 
@@ -11,22 +12,34 @@ public class StartPresenterImpl implements StartPresenter {
         this.startView = startView;
     }
 
+    /**
+     * On New Game button click
+     */
     @Override
     public void onNewGameButtonClick() {
         startView.clearPreferences();
         startView.navigateToTeam();
     }
 
+    /**
+     * On Exit button click
+     */
     @Override
     public void onExitButtonClick() {
         startView.exit();
     }
 
+    /**
+     * On Rules button click
+     */
     @Override
     public void onRulesButtonClick() {
         startView.showRules();
     }
 
+    /**
+     * On destroy activity
+     */
     @Override
     public void onDestroy() {
         startView = null;

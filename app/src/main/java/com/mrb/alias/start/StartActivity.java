@@ -33,6 +33,9 @@ public class StartActivity extends AppCompatActivity implements StartView {
     private StartPresenter presenter;
     private SharedPreference sharedPreference;
 
+    /**
+     * On create activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,9 @@ public class StartActivity extends AppCompatActivity implements StartView {
         tvVersion.setText(version);
     }
 
+    /**
+     * Run listeners on button click and etc.
+     */
     protected void runListeners() {
         btnNewGame.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,33 +75,51 @@ public class StartActivity extends AppCompatActivity implements StartView {
         });
     }
 
+    /**
+     * Navigate to Team activity
+     */
     @Override
     public void navigateToTeam() {
         startActivity(new Intent(this, TeamActivity.class));
         finish();
     }
 
+    /**
+     * Exit from application
+     */
     @Override
     public void exit() {
         finish();
     }
 
+    /**
+     * Show rules message
+     */
     @Override
     public void showRules() {
-        Toast.makeText(getApplicationContext(),"There are no rules!", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "There are no rules!", Toast.LENGTH_LONG).show();
     }
 
+    /**
+     * Clear Shared Preferences
+     */
     @Override
     public void clearPreferences() {
         sharedPreference.clearPreferences(this);
     }
 
+    /**
+     * On destroy activity
+     */
     @Override
     protected void onDestroy() {
         presenter.onDestroy();
         super.onDestroy();
     }
 
+    /**
+     * On resume activity
+     */
     @Override
     protected void onResume() {
         super.onResume();

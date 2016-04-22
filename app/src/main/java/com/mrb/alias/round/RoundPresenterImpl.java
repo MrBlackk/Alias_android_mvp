@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by chvs on 18.04.2016.
+ * Round Presenter implementation
+ * Created by Volodymyr Chornyi on 18.04.2016.
  */
 public class RoundPresenterImpl implements RoundPresenter {
 
@@ -19,31 +20,48 @@ public class RoundPresenterImpl implements RoundPresenter {
         game = this.roundView.loadGame();
     }
 
+    /**
+     * On start activity
+     */
     @Override
-    public void getListOfWords() {
+    public void onStart() {
+        getListOfWords();
+    }
+
+    /**
+     * Get list of current results
+     */
+    private void getListOfWords() {
         roundView.showListOfWords(game.getCurrentResults());
     }
 
+    /**
+     * On Next button click
+     */
     @Override
     public void onNextButtonClick() {
         addPointsToCurrentTeam(getNumberOfPoints());
         setNextTeam();
         clearListOfCurrentWords();
         roundView.saveGame(game);
-        if(game.isStarted()){
+        if (game.isStarted()) {
             roundView.navigateToResults();
         } else {
             roundView.navigateToWin();
         }
     }
 
-    @Override
-    public void clearListOfCurrentWords() {
+    /**
+     * Clear list of current results
+     */
+    private void clearListOfCurrentWords() {
         game.clearCurrentResults();
     }
 
-    @Override
-    public void setNextTeam() {
+    /**
+     * Set next Team
+     */
+    private void setNextTeam() {
         Team currentTeam = game.getCurrentTeam();
         ArrayList<Team> teams = game.getTeams();
         int currentIndex = teams.indexOf(currentTeam);
@@ -51,11 +69,11 @@ public class RoundPresenterImpl implements RoundPresenter {
         int size = teams.size();
         int nextIndex = currentIndex + 1;
 
-        if(currentIndex == size - 1){
+        if (currentIndex == size - 1) {
             nextIndex = 0;
             setNextRound();
             Team winner = getWinner();
-            if(winner != null){
+            if (winner != null) {
                 nextIndex = teams.indexOf(winner);
                 game.setIsStarted(false);
             }
@@ -64,14 +82,18 @@ public class RoundPresenterImpl implements RoundPresenter {
         game.setCurrentTeam(teams.get(nextIndex));
     }
 
-    @Override
-    public void setNextRound() {
+    /**
+     * Set next round
+     */
+    private void setNextRound() {
         int currentRound = game.getRound();
         game.setRound(currentRound + 1);
     }
 
-    @Override
-    public void addPointsToCurrentTeam(int points) {
+    /**
+     * Add points to current Team
+     */
+    private void addPointsToCurrentTeam(int points) {
         Team currentTeam = game.getCurrentTeam();
         ArrayList<Team> teams = game.getTeams();
 
@@ -83,17 +105,19 @@ public class RoundPresenterImpl implements RoundPresenter {
         currentTeam.setPoints(currentPoints + points);
     }
 
-    @Override
-    public int getNumberOfPoints() {
+    /**
+     * Count number of points for current results
+     */
+    private int getNumberOfPoints() {
         HashMap<String, Boolean> results = game.getCurrentResults();
         int points = 0;
 
-        for (HashMap.Entry<String, Boolean> entry : results.entrySet()){
-            if(entry.getValue() == null){
+        for (HashMap.Entry<String, Boolean> entry : results.entrySet()) {
+            if (entry.getValue() == null) {
                 continue;
             }
 
-            if (entry.getValue()){
+            if (entry.getValue()) {
                 points++;
             } else {
                 points--;
@@ -103,20 +127,22 @@ public class RoundPresenterImpl implements RoundPresenter {
         return points;
     }
 
-    @Override
-    public Team getWinner() {
+    /**
+     * Get winner or null if there is no winner yet
+     */
+    private Team getWinner() {
         int pointsToWin = game.getMaxPoints();
         ArrayList<Team> teams = game.getTeams();
         Team winner = null;
         int maxPoints = teams.get(0).getPoints();
 
-       for(Team team: teams){
-           int points = team.getPoints();
-           if(points >= pointsToWin && points >= maxPoints){
-               winner = team;
-           }
-       }
-        
+        for (Team team : teams) {
+            int points = team.getPoints();
+            if (points >= pointsToWin && points >= maxPoints) {
+                winner = team;
+            }
+        }
+
         return winner;
     }
 

@@ -12,7 +12,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by chvs on 18.04.2016.
+ * Adapter to show word results
+ * Created by Volodymyr Chornyi on 18.04.2016.
  */
 public class WordsResultAdapter extends BaseAdapter {
 

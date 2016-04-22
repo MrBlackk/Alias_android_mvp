@@ -12,7 +12,8 @@ import com.mrb.alias.R;
 import java.util.ArrayList;
 
 /**
- * Created by chvs on 09.04.2016.
+ * Adapter to show list of teams with names (and points)
+ * Created by Volodymyr Chornyi on 09.04.2016.
  */
 public class TeamAdapter extends ArrayAdapter<Team> {
 
@@ -40,7 +41,7 @@ public class TeamAdapter extends ArrayAdapter<Team> {
         tvName.setText(team.getName());
         TextView tvPoints = (TextView) convertView.findViewById(R.id.team_adapter_tvPoints);
 
-        if(this.showPoints){
+        if (showPoints) {
             tvPoints.setText(String.valueOf(team.getPoints()));
         } else {
             tvPoints.setVisibility(View.GONE);

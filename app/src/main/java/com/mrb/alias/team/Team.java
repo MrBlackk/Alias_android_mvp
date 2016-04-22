@@ -1,7 +1,8 @@
 package com.mrb.alias.team;
 
 /**
- * Created by chvs on 09.04.2016.
+ * Team class
+ * Created by Volodymyr Chornyi on 09.04.2016.
  */
 public class Team {
 

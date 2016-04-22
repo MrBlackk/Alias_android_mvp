@@ -34,6 +34,9 @@ public class WinActivity extends AppCompatActivity implements WinView {
     private SharedPreference sharedPreference;
     private WinPresenter presenter;
 
+    /**
+     * On create activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +45,15 @@ public class WinActivity extends AppCompatActivity implements WinView {
         sharedPreference = new SharedPreference();
 
         presenter = new WinPresenterImpl(this);
-        presenter.getWinner();
-        presenter.getResults();
-
         runListeners();
+
+        presenter.onStart();
     }
 
-    private void runListeners(){
+    /**
+     * Run listeners on button click and etc.
+     */
+    private void runListeners() {
         btnGoToMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,30 +62,47 @@ public class WinActivity extends AppCompatActivity implements WinView {
         });
     }
 
+    /**
+     * Show winner
+     */
     @Override
     public void showWinner(String winner) {
         tvWinner.setText(winner);
     }
 
+    /**
+     * Load game
+     *
+     * @return Game
+     */
     @Override
     public Game loadGame() {
         return sharedPreference.loadGame(this);
     }
 
+    /**
+     * Show final results
+     */
     @Override
     public void showResults(ArrayList<Team> arrayList) {
         TeamAdapter adapter = new TeamAdapter(this, arrayList, true);
         lvResults.setAdapter(adapter);
     }
 
+    /**
+     * Navigate to main menu
+     */
     @Override
     public void navigateToMenu() {
         startActivity(new Intent(this, StartActivity.class));
         finish();
     }
 
+    /**
+     * Save game
+     */
     @Override
     public void saveGame(Game game) {
-        sharedPreference.saveGame(this,game);
+        sharedPreference.saveGame(this, game);
     }
 }

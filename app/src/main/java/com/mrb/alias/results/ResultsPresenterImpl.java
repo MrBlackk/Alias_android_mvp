@@ -5,10 +5,12 @@ import com.mrb.alias.team.Team;
 import java.util.ArrayList;
 
 /**
- * Created by chvs on 12.04.2016.
+ * Results Presenter implementation
+ * Created by Volodymyr Chornyi on 12.04.2016.
  */
 public class ResultsPresenterImpl implements ResultsPresenter {
 
+    public static final boolean POINTS_VISIBLE = true;
     ResultsView resultsView;
     ArrayList<Team> arrayOfTeams;
     Game game;
@@ -18,34 +20,56 @@ public class ResultsPresenterImpl implements ResultsPresenter {
         game = this.resultsView.loadGame();
     }
 
+    /**
+     * On start activity
+     */
     @Override
-    public void getResults() {
-        arrayOfTeams = game.getTeams();
-        resultsView.showResults(arrayOfTeams);
+    public void onStart() {
+        getResults();
+        startGame();
+        getNextTeam();
+        getRound();
     }
 
+    /**
+     * Get team results and show it
+     */
+    private void getResults() {
+        arrayOfTeams = game.getTeams();
+        resultsView.showResults(arrayOfTeams, POINTS_VISIBLE);
+    }
+
+    /**
+     * On Start button click
+     */
     @Override
     public void onStartButtonClick() {
         resultsView.saveGame(game);
         resultsView.navigateToGame();
     }
 
-    @Override
-    public void startGame() {
-        if(!game.isStarted()){
+    /**
+     * Start game and set default values
+     */
+    private void startGame() {
+        if (!game.isStarted()) {
             game.setIsStarted(true);
             game.setCurrentTeam(arrayOfTeams.get(0));
             game.setRound(1);
         }
     }
 
-    @Override
-    public void getRound() {
+    /**
+     * Get current round and show it
+     */
+    private void getRound() {
         resultsView.showRound(game.getRound());
     }
 
-    @Override
-    public void getNextTeam() {
+    /**
+     * Get next team and show it
+     */
+    private void getNextTeam() {
         Team currentTeam = game.getCurrentTeam();
         resultsView.showNextTeam(currentTeam.getName());
     }

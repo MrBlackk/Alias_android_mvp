@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by chv on 14.04.2016.
+ * Game singleton class
+ * Created by Volodymyr Chornyi on 14.04.2016.
  */
 public class Game {
 
@@ -22,7 +23,6 @@ public class Game {
     private String level;
 
     private Game() {
-
     }
 
     public static Game getInstance() {
@@ -40,7 +40,7 @@ public class Game {
         this.currentResults.put(word, isGuessed);
     }
 
-    public void clearCurrentResults(){
+    public void clearCurrentResults() {
         this.currentResults.clear();
     }
 
@@ -93,14 +93,6 @@ public class Game {
     }
 
     public Team getCurrentTeam() {
-        //move to presenter
-//        if(isRoundFinished){
-//            Team currentTeam = getCurrentTeam();
-//            int currentIndex = teams.indexOf(currentTeam);
-//            //implement checking current index and get next team
-//            //setCurrentTeam(anotherTeam);
-//            setIsRoundFinished(false);
-//        }
         return currentTeam;
     }
 

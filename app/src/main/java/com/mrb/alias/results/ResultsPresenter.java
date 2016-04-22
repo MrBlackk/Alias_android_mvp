@@ -1,13 +1,12 @@
 package com.mrb.alias.results;
 
 /**
- * Created by chvs on 12.04.2016.
+ * Results Presenter interface
+ * Created by Volodymyr Chornyi on 12.04.2016.
  */
 public interface ResultsPresenter {
 
-    void getResults();
+    void onStart();
+
     void onStartButtonClick();
-    void startGame();
-    void getRound();
-    void getNextTeam();
 }

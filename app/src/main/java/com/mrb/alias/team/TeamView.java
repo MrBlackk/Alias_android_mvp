@@ -5,11 +5,15 @@ import com.mrb.alias.results.Game;
 import java.util.ArrayList;
 
 /**
- * Created by chvs on 02.04.2016.
+ * Team View interface
+ * Created by Volodymyr Chornyi on 02.04.2016.
  */
 public interface TeamView {
     void navigateToSettings();
-    void showListOfTeams(ArrayList<Team> arrayList);
+
+    void showListOfTeams(ArrayList<Team> arrayList, boolean isPointsVisible);
+
     Game loadGame();
+
     void saveGame(Game game);
 }

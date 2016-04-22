@@ -8,13 +8,17 @@ import com.google.gson.Gson;
 import com.mrb.alias.results.Game;
 
 /**
- * Created by chvs on 09.04.2016.
+ * Class to work with Shared Preferences
+ * Created by Volodymyr Chornyi on 09.04.2016.
  */
 public class SharedPreference {
 
     public static final String PREFS_NAME = "ALIAS_PREFS";
     public static final String GAME = "Game";
 
+    /**
+     * Save Game class
+     */
     public void saveGame(Context context, Game game) {
         SharedPreferences settings;
         Editor editor;
@@ -29,6 +33,9 @@ public class SharedPreference {
         editor.apply();
     }
 
+    /**
+     * Load Game class
+     */
     public Game loadGame(Context context) {
         SharedPreferences settings;
         Game game;
@@ -45,6 +52,9 @@ public class SharedPreference {
         return game;
     }
 
+    /**
+     * Clear preferences
+     */
     public void clearPreferences(Context context) {
         SharedPreferences settings;
         Editor editor;

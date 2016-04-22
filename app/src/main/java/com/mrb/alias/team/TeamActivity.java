@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class TeamActivity extends AppCompatActivity implements TeamView{
+public class TeamActivity extends AppCompatActivity implements TeamView {
 
     @Bind(R.id.team_btnNext)
     Button btnNext;
@@ -28,6 +28,9 @@ public class TeamActivity extends AppCompatActivity implements TeamView{
     private TeamPresenter presenter;
     private SharedPreference sharedPreference;
 
+    /**
+     * On create activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,37 +42,59 @@ public class TeamActivity extends AppCompatActivity implements TeamView{
         presenter = new TeamPresenterImpl(this);
         this.runListeners();
 
-        presenter.createTeams();
+        presenter.onStart();
     }
 
+    /**
+     * Run listeners on button click and etc.
+     */
     private void runListeners() {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.onNextToSettingsClick();
+                presenter.onNextButtonClick();
             }
         });
     }
 
+    /**
+     * Navigate to Settings activity
+     */
     @Override
     public void navigateToSettings() {
         startActivity(new Intent(this, SettingsActivity.class));
         finish();
     }
 
+    /**
+     * Show list of teams via adapter
+     *
+     * @param arrayOfTeams    - array of Team elements
+     * @param isPointsVisible - show points next to team name or not
+     */
     @Override
-    public void showListOfTeams(ArrayList<Team> arrayOfTeams) {
-        TeamAdapter adapter = new TeamAdapter(this, arrayOfTeams, false);
+    public void showListOfTeams(ArrayList<Team> arrayOfTeams, boolean isPointsVisible) {
+        TeamAdapter adapter = new TeamAdapter(this, arrayOfTeams, isPointsVisible);
         lvTeams.setAdapter(adapter);
     }
 
+    /**
+     * Load game
+     *
+     * @return Game class
+     */
     @Override
     public Game loadGame() {
-       return sharedPreference.loadGame(this);
+        return sharedPreference.loadGame(this);
     }
 
+    /**
+     * Save game to Shared Preferences
+     *
+     * @param game - Game class
+     */
     @Override
     public void saveGame(Game game) {
-        sharedPreference.saveGame(this,game);
+        sharedPreference.saveGame(this, game);
     }
 }

@@ -1,10 +1,12 @@
 package com.mrb.alias.settings;
 
 /**
- * Created by chvs on 02.04.2016.
+ * Settings Presenter interface
+ * Created by Volodymyr Chornyi on 02.04.2016.
  */
 public interface SettingsPresenter {
 
     void onNextButtonClick();
-    void saveGameSettings();
+
+    void onStart();
 }

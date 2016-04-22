@@ -1,10 +1,12 @@
 package com.mrb.alias.team;
 
 /**
- * Created by chvs on 02.04.2016.
+ * Team Presenter interface
+ * Created by Volodymyr Chornyi on 02.04.2016.
  */
 public interface TeamPresenter {
 
-    void onNextToSettingsClick();
-    void createTeams();
+    void onNextButtonClick();
+
+    void onStart();
 }

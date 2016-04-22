@@ -17,7 +17,7 @@ import com.mrb.alias.utils.SharedPreference;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class SettingsActivity extends AppCompatActivity implements SettingsView{
+public class SettingsActivity extends AppCompatActivity implements SettingsView {
 
     @Bind(R.id.settings_sbTime)
     SeekBar sbTime;
@@ -40,6 +40,9 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView{
     private SettingsPresenter presenter;
     private SharedPreference sharedPreference;
 
+    /**
+     * On create activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,11 +53,13 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView{
         presenter = new SettingsPresenterImpl(this);
         this.runListeners();
 
-        sbTime.setProgress(10);
-        sbPoints.setProgress(10);
+        presenter.onStart();
     }
 
-    protected void runListeners(){
+    /**
+     * Run listeners on button click and etc.
+     */
+    protected void runListeners() {
         sbTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -98,34 +103,68 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView{
         });
     }
 
+    /**
+     * Get Time on Round seek bar value
+     */
     @Override
     public int getTimeOnRound() {
         return sbTime.getProgress();
     }
 
+    /**
+     * Get Points to win seek bar value
+     */
     @Override
     public int getPointsOnRound() {
         return sbPoints.getProgress();
     }
 
+    /**
+     * Get drop down Level value
+     */
     @Override
     public String getLevelValue() {
         return String.valueOf(spnLevel.getSelectedItem());
     }
 
+    /**
+     * Navigate to Results activity
+     */
     @Override
     public void navigateToResults() {
         startActivity(new Intent(this, ResultsActivity.class));
         finish();
     }
 
+    /**
+     * Load game
+     */
     @Override
     public Game loadGame() {
         return sharedPreference.loadGame(this);
     }
 
+    /**
+     * Save game to Shared Preferences
+     */
     @Override
     public void saveGame(Game game) {
         sharedPreference.saveGame(this, game);
+    }
+
+    /**
+     * Set value to Time seek bar
+     */
+    @Override
+    public void setTimeSeekBarProgress(int progress) {
+        sbTime.setProgress(progress);
+    }
+
+    /**
+     * Set value to Points seek bar
+     */
+    @Override
+    public void setPointsSeekBarProgress(int progress) {
+        sbPoints.setProgress(progress);
     }
 }

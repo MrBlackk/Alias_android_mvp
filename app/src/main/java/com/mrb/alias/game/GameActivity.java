@@ -20,7 +20,7 @@ import java.io.IOException;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class GameActivity extends AppCompatActivity implements GameView{
+public class GameActivity extends AppCompatActivity implements GameView {
 
     @Bind(R.id.game_tvWord)
     TextView tvWord;
@@ -39,6 +39,9 @@ public class GameActivity extends AppCompatActivity implements GameView{
     private CountDownTimer countDownTimer;
     private SharedPreference sharedPreference;
 
+    /**
+     * On create activity
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,12 +62,14 @@ public class GameActivity extends AppCompatActivity implements GameView{
         }
 
         presenter = new GamePresenterImpl(this, dataBaseHelper);
-
-        presenter.getRandomWord();
-        presenter.startTimer();
         runListeners();
+
+        presenter.onStart();
     }
 
+    /**
+     * Run listeners on button click and etc.
+     */
     private void runListeners() {
         btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,11 +85,17 @@ public class GameActivity extends AppCompatActivity implements GameView{
         });
     }
 
+    /**
+     * Show word
+     */
     @Override
     public void showWord(String word) {
         tvWord.setText(word);
     }
 
+    /**
+     * Start timer
+     */
     @Override
     public void startTimer(int time) {
         countDownTimer = new CountDownTimer(time * 1000, 1000) {
@@ -100,17 +111,26 @@ public class GameActivity extends AppCompatActivity implements GameView{
         }.start();
     }
 
+    /**
+     * Navigate to Round activity
+     */
     @Override
     public void navigateToRoundResults() {
         startActivity(new Intent(this, RoundActivity.class));
         finish();
     }
 
+    /**
+     * Load Game
+     */
     @Override
     public Game loadGame() {
         return sharedPreference.loadGame(this);
     }
 
+    /**
+     * Save Game
+     */
     @Override
     public void saveGame(Game game) {
         sharedPreference.saveGame(this, game);
