@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.mrb.alias.R;
 import com.mrb.alias.results.Game;
+import com.mrb.alias.results.ResultsActivity;
 import com.mrb.alias.start.StartActivity;
 import com.mrb.alias.team.Team;
 import com.mrb.alias.team.TeamAdapter;
@@ -30,6 +31,9 @@ public class WinActivity extends AppCompatActivity implements WinView {
 
     @Bind(R.id.win_btnGoToMenu)
     Button btnGoToMenu;
+
+    @Bind(R.id.win_btnReturnMatch)
+    Button btnReturnMatch;
 
     private SharedPreference sharedPreference;
     private WinPresenter presenter;
@@ -58,6 +62,12 @@ public class WinActivity extends AppCompatActivity implements WinView {
             @Override
             public void onClick(View v) {
                 presenter.onGoToMenuButtonClick();
+            }
+        });
+        btnReturnMatch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onReturnMatchButtonClick();
             }
         });
     }
@@ -95,6 +105,12 @@ public class WinActivity extends AppCompatActivity implements WinView {
     @Override
     public void navigateToMenu() {
         startActivity(new Intent(this, StartActivity.class));
+        finish();
+    }
+
+    @Override
+    public void navigateToResults() {
+        startActivity(new Intent(this, ResultsActivity.class));
         finish();
     }
 

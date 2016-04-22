@@ -9,4 +9,6 @@ public interface WinPresenter {
     void onStart();
 
     void onGoToMenuButtonClick();
+
+    void onReturnMatchButtonClick();
 }

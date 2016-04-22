@@ -20,4 +20,6 @@ public interface WinView {
     void showResults(ArrayList<Team> arrayList);
 
     void navigateToMenu();
+
+    void navigateToResults();
 }

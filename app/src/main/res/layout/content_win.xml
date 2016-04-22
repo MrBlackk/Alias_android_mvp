@@ -46,6 +46,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/win_lvResults"
         android:layout_centerHorizontal="true"
-        android:layout_above="@+id/win_btnGoToMenu"
+        android:layout_above="@+id/win_btnReturnMatch"
         android:layout_below="@+id/win_tvWinnerLabel" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/win_button_return_match"
+        android:id="@+id/win_btnReturnMatch"
+        android:layout_above="@+id/win_btnGoToMenu"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
