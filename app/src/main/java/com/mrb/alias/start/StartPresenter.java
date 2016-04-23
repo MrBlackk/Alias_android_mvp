@@ -12,4 +12,8 @@ public interface StartPresenter {
     void onRulesButtonClick();
 
     void onDestroy();
+
+    void onStart();
+
+    void onContinueButtonClick();
 }

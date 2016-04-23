@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.mrb.alias.BuildConfig;
 import com.mrb.alias.R;
+import com.mrb.alias.results.Game;
+import com.mrb.alias.results.ResultsActivity;
 import com.mrb.alias.team.TeamActivity;
 import com.mrb.alias.utils.SharedPreference;
 
@@ -26,6 +28,9 @@ public class StartActivity extends AppCompatActivity implements StartView {
 
     @Bind(R.id.start_btnExit)
     Button btnExit;
+
+    @Bind(R.id.start_btnContinue)
+    Button btnContinue;
 
     @Bind(R.id.start_tvVersion)
     TextView tvVersion;
@@ -45,6 +50,8 @@ public class StartActivity extends AppCompatActivity implements StartView {
 
         presenter = new StartPresenterImpl(this);
         this.runListeners();
+
+        presenter.onStart();
 
         //Debug mode only
         String version = getString(R.string.start_version) + BuildConfig.VERSION_NAME;
@@ -73,6 +80,12 @@ public class StartActivity extends AppCompatActivity implements StartView {
                 presenter.onRulesButtonClick();
             }
         });
+        btnContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.onContinueButtonClick();
+            }
+        });
     }
 
     /**
@@ -81,6 +94,15 @@ public class StartActivity extends AppCompatActivity implements StartView {
     @Override
     public void navigateToTeam() {
         startActivity(new Intent(this, TeamActivity.class));
+        finish();
+    }
+
+    /**
+     * Navigate to Results activity
+     */
+    @Override
+    public void navigateToResults() {
+        startActivity(new Intent(this, ResultsActivity.class));
         finish();
     }
 
@@ -106,6 +128,22 @@ public class StartActivity extends AppCompatActivity implements StartView {
     @Override
     public void clearPreferences() {
         sharedPreference.clearPreferences(this);
+    }
+
+    /**
+     * Hide Continue game button
+     */
+    @Override
+    public void hideContinueButton() {
+        btnContinue.setVisibility(View.GONE);
+    }
+
+    /**
+     * Load Game
+     */
+    @Override
+    public Game loadGame() {
+        return sharedPreference.loadGame(this);
     }
 
     /**

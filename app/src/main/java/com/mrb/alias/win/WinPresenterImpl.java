@@ -52,6 +52,9 @@ public class WinPresenterImpl implements WinPresenter {
         winView.navigateToMenu();
     }
 
+    /**
+     * On Return Match button click - set points to 0
+     */
     @Override
     public void onReturnMatchButtonClick() {
         ArrayList<Team> teams = game.getTeams();

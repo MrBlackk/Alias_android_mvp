@@ -108,6 +108,9 @@ public class WinActivity extends AppCompatActivity implements WinView {
         finish();
     }
 
+    /**
+     * Navigate to results
+     */
     @Override
     public void navigateToResults() {
         startActivity(new Intent(this, ResultsActivity.class));

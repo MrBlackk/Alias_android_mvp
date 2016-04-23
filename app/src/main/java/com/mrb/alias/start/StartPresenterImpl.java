@@ -1,5 +1,7 @@
 package com.mrb.alias.start;
 
+import com.mrb.alias.results.Game;
+
 /**
  * Start Presenter implementation
  * Created by Volodymyr Chornyi on 01.04.2016.
@@ -7,9 +9,11 @@ package com.mrb.alias.start;
 public class StartPresenterImpl implements StartPresenter {
 
     StartView startView;
+    Game game;
 
     public StartPresenterImpl(StartView startView) {
         this.startView = startView;
+        game = this.startView.loadGame();
     }
 
     /**
@@ -43,6 +47,24 @@ public class StartPresenterImpl implements StartPresenter {
     @Override
     public void onDestroy() {
         startView = null;
+    }
+
+    /**
+     * On start activity
+     */
+    @Override
+    public void onStart() {
+        if(!game.isStarted()){
+            startView.hideContinueButton();
+        }
+    }
+
+    /**
+     * On Continue Game button click
+     */
+    @Override
+    public void onContinueButtonClick() {
+        startView.navigateToResults();
     }
 
 }
