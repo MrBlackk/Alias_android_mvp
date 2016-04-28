@@ -16,6 +16,7 @@ public class GamePresenterImpl implements GamePresenter {
     DataBaseHelper dataBaseHelper;
     Game game;
     String currentWord;
+    boolean isTimerFinished;
 
     public GamePresenterImpl(GameView gameView, DataBaseHelper dataBaseHelper) {
         this.gameView = gameView;
@@ -64,8 +65,7 @@ public class GamePresenterImpl implements GamePresenter {
      */
     @Override
     public void onTimeFinished() {
-        gameView.saveGame(game);
-        gameView.navigateToRoundResults();
+        isTimerFinished = true;
     }
 
     /**
@@ -97,5 +97,9 @@ public class GamePresenterImpl implements GamePresenter {
      */
     private void onButtonClick() {
         getRandomWord();
+        if(isTimerFinished){
+            gameView.saveGame(game);
+            gameView.navigateToRoundResults();
+        }
     }
 }
