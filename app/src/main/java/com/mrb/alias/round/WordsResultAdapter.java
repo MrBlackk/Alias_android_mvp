@@ -4,6 +4,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.mrb.alias.R;
@@ -47,13 +48,41 @@ public class WordsResultAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_words_list, parent, false);
         }
 
-        HashMap.Entry<String, Boolean> item = getItem(position);
+        final HashMap.Entry<String, Boolean> item = getItem(position);
 
         TextView tvWord = (TextView) convertView.findViewById(R.id.results_adapter_tvWord);
         tvWord.setText(item.getKey());
 
-        TextView tvIsGuessed = (TextView) convertView.findViewById(R.id.results_adapter_tvIsGuessed);
+        final TextView tvIsGuessed = (TextView) convertView.findViewById(R.id.results_adapter_tvIsGuessed);
         tvIsGuessed.setText(String.valueOf(item.getValue()));
+
+        Button btnPlus = (Button) convertView.findViewById(R.id.results_adapter_btnPlus);
+        Button btnMinus = (Button) convertView.findViewById(R.id.results_adapter_btnMinus);
+        Button btnSkip = (Button) convertView.findViewById(R.id.results_adapter_btnSkip);
+
+        btnPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                item.setValue(true);
+                tvIsGuessed.setText(String.valueOf(item.getValue()));
+            }
+        });
+
+        btnMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                item.setValue(false);
+                tvIsGuessed.setText(String.valueOf(item.getValue()));
+            }
+        });
+
+        btnSkip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                item.setValue(null);
+                tvIsGuessed.setText(String.valueOf(item.getValue()));
+            }
+        });
 
         return convertView;
     }

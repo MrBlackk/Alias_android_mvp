@@ -17,9 +17,38 @@
             android:text="Boolean"
             android:textSize="24sp"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/results_adapter_tvWord"
-            android:layout_toEndOf="@+id/results_adapter_tvWord"
-            android:layout_marginLeft="54dp"
-            android:layout_marginStart="54dp" />
-    </RelativeLayout>
+            android:layout_toLeftOf="@+id/results_adapter_btnPlus"
+            android:layout_toStartOf="@+id/results_adapter_btnPlus" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:id="@+id/results_adapter_btnPlus"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/results_adapter_btnMinus"
+        android:layout_toStartOf="@+id/results_adapter_btnMinus" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:id="@+id/results_adapter_btnMinus"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/results_adapter_btnSkip"
+        android:layout_toStartOf="@+id/results_adapter_btnSkip" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x"
+        android:id="@+id/results_adapter_btnSkip"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
 
