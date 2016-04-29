@@ -66,6 +66,7 @@ public class GamePresenterImpl implements GamePresenter {
     @Override
     public void onTimeFinished() {
         isTimerFinished = true;
+        gameView.setTextRed();
     }
 
     /**
@@ -96,10 +97,11 @@ public class GamePresenterImpl implements GamePresenter {
      * On general button click
      */
     private void onButtonClick() {
-        getRandomWord();
         if(isTimerFinished){
             gameView.saveGame(game);
             gameView.navigateToRoundResults();
+        } else {
+            getRandomWord();
         }
     }
 }

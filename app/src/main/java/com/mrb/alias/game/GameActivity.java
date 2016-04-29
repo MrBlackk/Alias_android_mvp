@@ -2,6 +2,7 @@ package com.mrb.alias.game;
 
 import android.content.Intent;
 import android.database.SQLException;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -136,4 +137,11 @@ public class GameActivity extends AppCompatActivity implements GameView {
         sharedPreference.saveGame(this, game);
     }
 
+    /**
+     * Set text color red
+     */
+    @Override
+    public void setTextRed() {
+        tvWord.setTextColor(Color.RED);
+    }
 }

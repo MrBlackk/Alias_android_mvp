@@ -17,4 +17,6 @@ public interface GameView {
     Game loadGame();
 
     void saveGame(Game game);
+
+    void setTextRed();
 }
