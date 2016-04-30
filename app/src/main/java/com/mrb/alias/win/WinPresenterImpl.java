@@ -4,6 +4,7 @@ import com.mrb.alias.results.Game;
 import com.mrb.alias.team.Team;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * Win presenter implementation
@@ -53,7 +54,7 @@ public class WinPresenterImpl implements WinPresenter {
     }
 
     /**
-     * On Return Match button click - set points to 0
+     * On Return Match button click - set points to 0 and clear used words
      */
     @Override
     public void onReturnMatchButtonClick() {
@@ -63,6 +64,7 @@ public class WinPresenterImpl implements WinPresenter {
             team.setPoints(0);
         }
         game.setTeams(teams);
+        game.setUsedIds(new HashSet<Integer>());
         winView.saveGame(game);
         winView.navigateToResults();
     }

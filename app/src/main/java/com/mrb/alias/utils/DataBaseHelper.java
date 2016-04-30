@@ -23,6 +23,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     private static String DB_NAME = "data.sqlite";
 
+    private final static String TABLE_NAME = "words";
+
     private SQLiteDatabase myDataBase;
 
     private final Context myContext;
@@ -156,8 +158,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     /**
      * Get count by column and table
      */
-    public int getCountByColumnAndTable(String columnName, String tableName) {
-        String selectQuery = "SELECT COUNT(" + columnName + ") FROM " + tableName;
+    public int getCountByColumnAndTable(String columnName) {
+        String selectQuery = "SELECT COUNT(" + columnName + ") FROM " + TABLE_NAME;
 
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -173,17 +175,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     /**
      * Get random word from column
      */
-    public String getRandomWordFromColumn(String columnName) {
-
-        final String TABLE_NAME = "words";
+    public String getRandomWordFromColumn(String columnName, int id) {
         final String COLUMN_NAME = columnName;
         final String ID_COULMN = "_id";
-
-        int count = getCountByColumnAndTable(COLUMN_NAME, TABLE_NAME);
-
-        int rand = (int) (Math.random() * count);
-
-        int id = rand + 1;
 
         String query = "SELECT  " + COLUMN_NAME + " FROM " + TABLE_NAME + " WHERE " + ID_COULMN + "=" + id;
 

@@ -4,6 +4,7 @@ import com.mrb.alias.team.Team;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  * Game singleton class
@@ -21,6 +22,7 @@ public class Game {
     private int timeOnRound;
     private HashMap<String, Boolean> currentResults = new HashMap<>();
     private String level;
+    private HashSet<Integer> usedIds = new HashSet<>();
 
     private Game() {
     }
@@ -30,6 +32,18 @@ public class Game {
             instance = new Game();
         }
         return instance;
+    }
+
+    public HashSet<Integer> getUsedIds() {
+        return usedIds;
+    }
+
+    public void addUsedIds(Integer usedIds) {
+        this.usedIds.add(usedIds);
+    }
+
+    public void setUsedIds(HashSet<Integer> usedIds) {
+        this.usedIds = usedIds;
     }
 
     public HashMap<String, Boolean> getCurrentResults() {
