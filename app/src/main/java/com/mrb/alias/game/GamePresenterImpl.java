@@ -57,6 +57,7 @@ public class GamePresenterImpl implements GamePresenter {
     private int getRandomAndUniqueId(int max, HashSet<Integer> usedIds) {
         int id = getRandomId(max);
 
+        //another variant: get list of available ids, e.g. 1-1000 and shuffle it and get one by one id
         while (usedIds.contains(id)) {
             id = getRandomId(max);
             if (usedIds.size() == numberOfWordsInDB - 5) {
@@ -103,6 +104,7 @@ public class GamePresenterImpl implements GamePresenter {
     public void onTimeFinished() {
         isTimerFinished = true;
         gameView.setTextRed();
+        gameView.hideTimer();
     }
 
     /**

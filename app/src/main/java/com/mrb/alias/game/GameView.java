@@ -19,4 +19,6 @@ public interface GameView {
     void saveGame(Game game);
 
     void setTextRed();
+
+    void hideTimer();
 }

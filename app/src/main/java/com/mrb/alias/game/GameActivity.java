@@ -144,4 +144,9 @@ public class GameActivity extends AppCompatActivity implements GameView {
     public void setTextRed() {
         tvWord.setTextColor(Color.RED);
     }
+
+    @Override
+    public void hideTimer() {
+        tvTimer.setVisibility(View.GONE);
+    }
 }
