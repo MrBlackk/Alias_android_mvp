@@ -21,8 +21,12 @@ public class StartPresenterImpl implements StartPresenter {
      */
     @Override
     public void onNewGameButtonClick() {
-        startView.clearPreferences();
-        startView.navigateToTeam();
+        if(game.isStarted()){
+            startView.showContinueGameDialog();
+        } else {
+            startView.clearPreferences();
+            startView.navigateToTeam();
+        }
     }
 
     /**
@@ -30,7 +34,7 @@ public class StartPresenterImpl implements StartPresenter {
      */
     @Override
     public void onExitButtonClick() {
-        startView.exit();
+        startView.showExitGameDialog();
     }
 
     /**
@@ -67,4 +71,20 @@ public class StartPresenterImpl implements StartPresenter {
         startView.navigateToResults();
     }
 
+    /**
+     * On Continue Game dialog Yes button click
+     */
+    @Override
+    public void onContinueDialogYesButtonClick() {
+        startView.clearPreferences();
+        startView.navigateToTeam();
+    }
+
+    /**
+     * On Exit dialog Yes button click
+     */
+    @Override
+    public void onExitDialogYesButtonClick() {
+        startView.exit();
+    }
 }

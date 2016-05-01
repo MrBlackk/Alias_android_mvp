@@ -1,5 +1,7 @@
 package com.mrb.alias.start;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -144,6 +146,46 @@ public class StartActivity extends AppCompatActivity implements StartView {
     @Override
     public Game loadGame() {
         return sharedPreference.loadGame(this);
+    }
+
+    @Override
+    public void showContinueGameDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.start_continue_dialog_title)
+                .setMessage(R.string.start_continue_dialog_message)
+                .setPositiveButton(R.string.start_dialog_yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        presenter.onContinueDialogYesButtonClick();
+                    }
+                })
+                .setNegativeButton(R.string.start_dialog_no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .show();
+    }
+
+    @Override
+    public void showExitGameDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.start_exit_dialog_title)
+                .setMessage(R.string.start_exit_dialog_message)
+                .setPositiveButton(R.string.start_dialog_yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        presenter.onExitDialogYesButtonClick();
+                    }
+                })
+                .setNegativeButton(R.string.start_dialog_no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .show();
     }
 
     /**

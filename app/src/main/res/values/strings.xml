@@ -11,6 +11,12 @@
     <string name="start_exit">Вийти</string>
     <string name="start_version">v.</string>
     <string name="start_continue">Продовжити</string>
+    <string name="start_dialog_yes">Так</string>
+    <string name="start_dialog_no">Ні</string>
+    <string name="start_continue_dialog_title">Нова гра</string>
+    <string name="start_continue_dialog_message">Ви дійсно бажаєте почату нову гру?</string>
+    <string name="start_exit_dialog_title">Вихід з гри</string>
+    <string name="start_exit_dialog_message">Ви дійсно бажаєте вийти з гри?</string>
 
     <string name="title_activity_team">TeamActivity</string>
     <string name="team_teams">Команди:</string>

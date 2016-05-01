@@ -20,4 +20,8 @@ public interface StartView {
     void hideContinueButton();
 
     Game loadGame();
+
+    void showContinueGameDialog();
+
+    void showExitGameDialog();
 }
