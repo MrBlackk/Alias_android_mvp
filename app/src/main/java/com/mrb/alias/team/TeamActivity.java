@@ -10,6 +10,7 @@ import android.widget.ListView;
 import com.mrb.alias.R;
 import com.mrb.alias.results.Game;
 import com.mrb.alias.settings.SettingsActivity;
+import com.mrb.alias.start.StartActivity;
 import com.mrb.alias.utils.SharedPreference;
 
 import java.util.ArrayList;
@@ -67,6 +68,15 @@ public class TeamActivity extends AppCompatActivity implements TeamView {
     }
 
     /**
+     * Back to start screen
+     */
+    @Override
+    public void backToStart() {
+        startActivity(new Intent(this, StartActivity.class));
+        finish();
+    }
+
+    /**
      * Show list of teams via adapter
      *
      * @param arrayOfTeams    - array of Team elements
@@ -96,5 +106,13 @@ public class TeamActivity extends AppCompatActivity implements TeamView {
     @Override
     public void saveGame(Game game) {
         sharedPreference.saveGame(this, game);
+    }
+
+    /**
+     * On back button pressed
+     */
+    @Override
+    public void onBackPressed() {
+        presenter.onBackButtonPressed();
     }
 }

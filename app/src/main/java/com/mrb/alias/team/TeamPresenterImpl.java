@@ -63,6 +63,14 @@ public class TeamPresenterImpl implements TeamPresenter {
     }
 
     /**
+     * On back button pressed
+     */
+    @Override
+    public void onBackButtonPressed() {
+        teamView.backToStart();
+    }
+
+    /**
      * Get random name of team
      */
     private String getRandomName() {

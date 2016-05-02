@@ -9,4 +9,6 @@ public interface SettingsPresenter {
     void onNextButtonClick();
 
     void onStart();
+
+    void onBackButtonPressed();
 }

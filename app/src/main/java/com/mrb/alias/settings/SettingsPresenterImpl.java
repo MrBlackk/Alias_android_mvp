@@ -37,6 +37,14 @@ public class SettingsPresenterImpl implements SettingsPresenter {
     }
 
     /**
+     * On back button pressed
+     */
+    @Override
+    public void onBackButtonPressed() {
+        settingsView.backToTeam();
+    }
+
+    /**
      * Set default value to Time seek bar
      */
     private void setDefaultTimeValue() {

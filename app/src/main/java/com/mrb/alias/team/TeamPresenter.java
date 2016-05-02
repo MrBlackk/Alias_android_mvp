@@ -9,4 +9,6 @@ public interface TeamPresenter {
     void onNextButtonClick();
 
     void onStart();
+
+    void onBackButtonPressed();
 }

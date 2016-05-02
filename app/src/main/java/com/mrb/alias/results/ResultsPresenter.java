@@ -9,4 +9,6 @@ public interface ResultsPresenter {
     void onStart();
 
     void onStartButtonClick();
+
+    void onBackButtonPressed();
 }

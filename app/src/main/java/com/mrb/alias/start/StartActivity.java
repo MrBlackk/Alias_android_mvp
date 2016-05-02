@@ -204,4 +204,12 @@ public class StartActivity extends AppCompatActivity implements StartView {
     protected void onResume() {
         super.onResume();
     }
+
+    /**
+     * On back button pressed
+     */
+    @Override
+    public void onBackPressed() {
+        presenter.onBackButtonPressed();
+    }
 }

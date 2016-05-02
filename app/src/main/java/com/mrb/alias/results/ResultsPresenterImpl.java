@@ -49,6 +49,14 @@ public class ResultsPresenterImpl implements ResultsPresenter {
     }
 
     /**
+     * On back button pressed
+     */
+    @Override
+    public void onBackButtonPressed() {
+        resultsView.backToSettings();
+    }
+
+    /**
      * Start game and set default values
      */
     private void startGame() {

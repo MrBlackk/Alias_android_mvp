@@ -87,4 +87,12 @@ public class StartPresenterImpl implements StartPresenter {
     public void onExitDialogYesButtonClick() {
         startView.exit();
     }
+
+    /**
+     * On back button pressed
+     */
+    @Override
+    public void onBackButtonPressed() {
+        startView.showExitGameDialog();
+    }
 }

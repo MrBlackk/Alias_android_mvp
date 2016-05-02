@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.mrb.alias.R;
 import com.mrb.alias.game.GameActivity;
+import com.mrb.alias.settings.SettingsActivity;
 import com.mrb.alias.team.Team;
 import com.mrb.alias.team.TeamAdapter;
 import com.mrb.alias.utils.SharedPreference;
@@ -99,6 +100,15 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView {
     }
 
     /**
+     * Back to settings screen
+     */
+    @Override
+    public void backToSettings() {
+        startActivity(new Intent(this, SettingsActivity.class));
+        finish();
+    }
+
+    /**
      * Save Game
      */
     @Override
@@ -112,5 +122,13 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView {
     @Override
     public Game loadGame() {
         return sharedPreference.loadGame(this);
+    }
+
+    /**
+     * On back button pressed
+     */
+    @Override
+    public void onBackPressed() {
+        presenter.onBackButtonPressed();
     }
 }

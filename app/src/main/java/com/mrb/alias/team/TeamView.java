@@ -11,6 +11,8 @@ import java.util.ArrayList;
 public interface TeamView {
     void navigateToSettings();
 
+    void backToStart();
+
     void showListOfTeams(ArrayList<Team> arrayList, boolean isPointsVisible);
 
     Game loadGame();

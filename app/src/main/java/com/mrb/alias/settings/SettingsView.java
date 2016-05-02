@@ -16,6 +16,8 @@ public interface SettingsView {
 
     void navigateToResults();
 
+    void backToTeam();
+
     Game loadGame();
 
     void saveGame(Game game);

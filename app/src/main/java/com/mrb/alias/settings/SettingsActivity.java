@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.mrb.alias.R;
 import com.mrb.alias.results.Game;
 import com.mrb.alias.results.ResultsActivity;
+import com.mrb.alias.team.TeamActivity;
 import com.mrb.alias.utils.SharedPreference;
 
 import butterknife.Bind;
@@ -134,6 +135,23 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
     public void navigateToResults() {
         startActivity(new Intent(this, ResultsActivity.class));
         finish();
+    }
+
+    /**
+     * Back to team screen
+     */
+    @Override
+    public void backToTeam() {
+        startActivity(new Intent(this, TeamActivity.class));
+        finish();
+    }
+
+    /**
+     * On back button pressed
+     */
+    @Override
+    public void onBackPressed() {
+        presenter.onBackButtonPressed();
     }
 
     /**

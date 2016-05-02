@@ -20,4 +20,6 @@ public interface StartPresenter {
     void onContinueDialogYesButtonClick();
 
     void onExitDialogYesButtonClick();
+
+    void onBackButtonPressed();
 }

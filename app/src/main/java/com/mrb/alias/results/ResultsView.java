@@ -18,6 +18,8 @@ public interface ResultsView {
 
     void navigateToGame();
 
+    void backToSettings();
+
     void saveGame(Game game);
 
     Game loadGame();
