@@ -8,8 +8,10 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.mrb.alias.R;
+import com.mrb.alias.utils.Data;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Adapter to show list of teams with names (and points)
@@ -18,6 +20,7 @@ import java.util.ArrayList;
 public class TeamAdapter extends ArrayAdapter<Team> {
 
     protected boolean showPoints;
+    protected ArrayList<Team> teams;
 
     @Override
     public boolean isEnabled(int position) {
@@ -27,17 +30,23 @@ public class TeamAdapter extends ArrayAdapter<Team> {
     public TeamAdapter(Context context, ArrayList<Team> teams, boolean showPoints) {
         super(context, 0, teams);
         this.showPoints = showPoints;
+        this.teams = teams;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        Team team = getItem(position);
+        final Team team = getItem(position);
+
+        final ArrayList<String> teamNames = new ArrayList<>();
+        for (Team teamItem : teams) {
+            teamNames.add(teamItem.getName());
+        }
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_team_name, parent, false);
         }
-        TextView tvName = (TextView) convertView.findViewById(R.id.team_adapter_tvName);
+        final TextView tvName = (TextView) convertView.findViewById(R.id.team_adapter_tvName);
         tvName.setText(team.getName());
         TextView tvPoints = (TextView) convertView.findViewById(R.id.team_adapter_tvPoints);
 
@@ -45,6 +54,23 @@ public class TeamAdapter extends ArrayAdapter<Team> {
             tvPoints.setText(String.valueOf(team.getPoints()));
         } else {
             tvPoints.setVisibility(View.GONE);
+
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int idx = new Random().nextInt(Data.teamNamesCount());
+                    String teamName = Data.getTeamName(idx);
+
+                    while (teamNames.contains(teamName)) {
+                        idx = new Random().nextInt(Data.teamNamesCount());
+                        teamName = Data.getTeamName(idx);
+                    }
+
+                    final String finalTeamName = teamName;
+                    tvName.setText(finalTeamName);
+                    team.setName(finalTeamName);
+                }
+            });
         }
 
         return convertView;

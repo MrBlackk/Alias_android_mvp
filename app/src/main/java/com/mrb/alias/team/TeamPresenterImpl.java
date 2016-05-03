@@ -1,6 +1,7 @@
 package com.mrb.alias.team;
 
 import com.mrb.alias.results.Game;
+import com.mrb.alias.utils.Data;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -74,8 +75,7 @@ public class TeamPresenterImpl implements TeamPresenter {
      * Get random name of team
      */
     private String getRandomName() {
-        String[] names = {"Jedi", "Sith", "Test", "Bla bla", "Team", "X-ten"};
-        int idx = new Random().nextInt(names.length);
-        return names[idx];
+        int idx = new Random().nextInt(Data.teamNamesCount());
+        return Data.getTeamName(idx);
     }
 }
