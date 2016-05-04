@@ -124,4 +124,12 @@ public class WinActivity extends AppCompatActivity implements WinView {
     public void saveGame(Game game) {
         sharedPreference.saveGame(this, game);
     }
+
+    /**
+     * On Back button pressed
+     */
+    @Override
+    public void onBackPressed() {
+        presenter.onBackButtonPressed();
+    }
 }

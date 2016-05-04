@@ -53,7 +53,7 @@ public class ResultsPresenterImpl implements ResultsPresenter {
      */
     @Override
     public void onBackButtonPressed() {
-        resultsView.backToSettings();
+        resultsView.backToMenu();
     }
 
     /**

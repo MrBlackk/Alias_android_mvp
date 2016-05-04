@@ -11,4 +11,6 @@ public interface WinPresenter {
     void onGoToMenuButtonClick();
 
     void onReturnMatchButtonClick();
+
+    void onBackButtonPressed();
 }

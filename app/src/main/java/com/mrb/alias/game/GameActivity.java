@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.mrb.alias.R;
 import com.mrb.alias.results.Game;
 import com.mrb.alias.round.RoundActivity;
+import com.mrb.alias.start.StartActivity;
 import com.mrb.alias.utils.DataBaseHelper;
 import com.mrb.alias.utils.SharedPreference;
 
@@ -122,6 +123,15 @@ public class GameActivity extends AppCompatActivity implements GameView {
     }
 
     /**
+     * Back to Menu activity
+     */
+    @Override
+    public void backToMenu() {
+        startActivity(new Intent(this, StartActivity.class));
+        finish();
+    }
+
+    /**
      * Load Game
      */
     @Override
@@ -148,5 +158,13 @@ public class GameActivity extends AppCompatActivity implements GameView {
     @Override
     public void hideTimer() {
         tvTimer.setVisibility(View.GONE);
+    }
+
+    /**
+     * On Back button pressed
+     */
+    @Override
+    public void onBackPressed() {
+        presenter.onBackButtonPressed();
     }
 }

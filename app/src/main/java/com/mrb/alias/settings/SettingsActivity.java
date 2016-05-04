@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.mrb.alias.R;
 import com.mrb.alias.results.Game;
 import com.mrb.alias.results.ResultsActivity;
-import com.mrb.alias.team.TeamActivity;
+import com.mrb.alias.start.StartActivity;
 import com.mrb.alias.utils.SharedPreference;
 
 import butterknife.Bind;
@@ -138,11 +138,11 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
     }
 
     /**
-     * Back to team screen
+     * Back to menu screen
      */
     @Override
-    public void backToTeam() {
-        startActivity(new Intent(this, TeamActivity.class));
+    public void backToMenu() {
+        startActivity(new Intent(this, StartActivity.class));
         finish();
     }
 

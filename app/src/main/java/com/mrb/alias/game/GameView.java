@@ -14,6 +14,8 @@ public interface GameView {
 
     void navigateToRoundResults();
 
+    void backToMenu();
+
     Game loadGame();
 
     void saveGame(Game game);

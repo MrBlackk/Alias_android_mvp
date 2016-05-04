@@ -13,4 +13,6 @@ public interface GamePresenter {
     void onTimeFinished();
 
     void onStart();
+
+    void onBackButtonPressed();
 }

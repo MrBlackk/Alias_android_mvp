@@ -10,6 +10,7 @@ import android.widget.ListView;
 import com.mrb.alias.R;
 import com.mrb.alias.results.Game;
 import com.mrb.alias.results.ResultsActivity;
+import com.mrb.alias.start.StartActivity;
 import com.mrb.alias.utils.SharedPreference;
 import com.mrb.alias.win.WinActivity;
 
@@ -77,6 +78,15 @@ public class RoundActivity extends AppCompatActivity implements RoundView {
     }
 
     /**
+     * Back to Menu activity
+     */
+    @Override
+    public void backToMenu() {
+        startActivity(new Intent(this, StartActivity.class));
+        finish();
+    }
+
+    /**
      * Navigate to Win activity
      */
     @Override
@@ -102,4 +112,11 @@ public class RoundActivity extends AppCompatActivity implements RoundView {
         sharedPreference.saveGame(this, game);
     }
 
+    /**
+     * On Back button pressed
+     */
+    @Override
+    public void onBackPressed() {
+        presenter.onBackButtonPressed();
+    }
 }

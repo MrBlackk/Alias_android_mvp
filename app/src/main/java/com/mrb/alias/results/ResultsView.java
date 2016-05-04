@@ -18,7 +18,7 @@ public interface ResultsView {
 
     void navigateToGame();
 
-    void backToSettings();
+    void backToMenu();
 
     void saveGame(Game game);
 

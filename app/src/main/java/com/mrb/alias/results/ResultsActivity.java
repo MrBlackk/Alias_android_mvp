@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.mrb.alias.R;
 import com.mrb.alias.game.GameActivity;
-import com.mrb.alias.settings.SettingsActivity;
+import com.mrb.alias.start.StartActivity;
 import com.mrb.alias.team.Team;
 import com.mrb.alias.team.TeamAdapter;
 import com.mrb.alias.utils.SharedPreference;
@@ -100,11 +100,11 @@ public class ResultsActivity extends AppCompatActivity implements ResultsView {
     }
 
     /**
-     * Back to settings screen
+     * Back to Menu screen
      */
     @Override
-    public void backToSettings() {
-        startActivity(new Intent(this, SettingsActivity.class));
+    public void backToMenu() {
+        startActivity(new Intent(this, StartActivity.class));
         finish();
     }
 

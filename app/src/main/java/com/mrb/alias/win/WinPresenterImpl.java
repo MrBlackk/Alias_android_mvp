@@ -68,4 +68,12 @@ public class WinPresenterImpl implements WinPresenter {
         winView.saveGame(game);
         winView.navigateToResults();
     }
+
+    /**
+     * On Back button pressed
+     */
+    @Override
+    public void onBackButtonPressed() {
+        winView.navigateToMenu();
+    }
 }

@@ -18,5 +18,7 @@ public interface RoundView {
 
     void navigateToResults();
 
+    void backToMenu();
+
     void navigateToWin();
 }

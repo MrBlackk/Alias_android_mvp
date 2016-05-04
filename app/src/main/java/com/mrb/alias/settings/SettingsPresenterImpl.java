@@ -41,7 +41,7 @@ public class SettingsPresenterImpl implements SettingsPresenter {
      */
     @Override
     public void onBackButtonPressed() {
-        settingsView.backToTeam();
+        settingsView.backToMenu();
     }
 
     /**

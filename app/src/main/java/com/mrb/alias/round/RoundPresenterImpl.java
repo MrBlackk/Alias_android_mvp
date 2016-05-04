@@ -52,6 +52,14 @@ public class RoundPresenterImpl implements RoundPresenter {
     }
 
     /**
+     * On Back button pressed
+     */
+    @Override
+    public void onBackButtonPressed() {
+        roundView.backToMenu();
+    }
+
+    /**
      * Clear list of current results
      */
     private void clearListOfCurrentWords() {

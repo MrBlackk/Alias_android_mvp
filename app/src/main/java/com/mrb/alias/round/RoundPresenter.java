@@ -9,4 +9,6 @@ public interface RoundPresenter {
     void onStart();
 
     void onNextButtonClick();
+
+    void onBackButtonPressed();
 }

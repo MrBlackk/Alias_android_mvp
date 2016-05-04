@@ -132,6 +132,14 @@ public class GamePresenterImpl implements GamePresenter {
     }
 
     /**
+     * On Back button pressed
+     */
+    @Override
+    public void onBackButtonPressed() {
+        gameView.backToMenu();
+    }
+
+    /**
      * On general button click
      */
     private void onButtonClick() {
