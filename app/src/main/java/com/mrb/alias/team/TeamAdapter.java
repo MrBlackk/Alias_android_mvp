@@ -38,11 +38,6 @@ public class TeamAdapter extends ArrayAdapter<Team> {
 
         final Team team = getItem(position);
 
-        final ArrayList<String> teamNames = new ArrayList<>();
-        for (Team teamItem : teams) {
-            teamNames.add(teamItem.getName());
-        }
-
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_team_name, parent, false);
         }
@@ -61,7 +56,7 @@ public class TeamAdapter extends ArrayAdapter<Team> {
                     int idx = new Random().nextInt(Data.teamNamesCount());
                     String teamName = Data.getTeamName(idx);
 
-                    while (teamNames.contains(teamName)) {
+                    while (teams.get(0).getName().equals(teamName) || teams.get(1).getName().equals(teamName)) {
                         idx = new Random().nextInt(Data.teamNamesCount());
                         teamName = Data.getTeamName(idx);
                     }
