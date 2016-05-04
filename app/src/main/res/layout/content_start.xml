@@ -12,15 +12,6 @@
     tools:context="com.mrb.alias.start.StartActivity"
     tools:showIn="@layout/activity_start">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/start_new_game"
-        android:id="@+id/start_btnNewGame"
-        android:layout_marginBottom="145dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -31,29 +22,48 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/start_rules"
-        android:id="@+id/start_btnRules"
-        android:layout_alignTop="@+id/start_btnNewGame"
-        android:layout_alignLeft="@+id/start_btnNewGame"
-        android:layout_alignStart="@+id/start_btnNewGame"
-        android:layout_marginTop="46dp" />
+        android:weightSum="3"
+        android:gravity="center"
+        android:layout_marginBottom="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:baselineAligned="false">
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/start_exit"
-        android:id="@+id/start_btnExit"
-        android:layout_below="@+id/start_btnRules"
-        android:layout_centerHorizontal="true" />
+        android:layout_weight="2">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/start_continue"
-        android:id="@+id/start_btnContinue"
-        android:layout_above="@+id/start_btnRules"
-        android:layout_centerHorizontal="true" />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/start_continue"
+                android:id="@+id/start_btnContinue"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/start_new_game"
+                android:id="@+id/start_btnNewGame"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/start_rules"
+                android:id="@+id/start_btnRules"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/start_exit"
+                android:id="@+id/start_btnExit" />
+
+    </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
