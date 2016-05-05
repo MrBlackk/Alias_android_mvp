@@ -28,15 +28,28 @@
         android:id="@+id/round_lvWords"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/round_btnNext"
+        android:layout_above="@+id/linearLayout"
         android:layout_below="@+id/round_tvResultsLabel" />
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/round_next_button"
-        android:id="@+id/round_btnNext"
+        android:weightSum="3"
+        android:gravity="center"
+        android:layout_marginBottom="48dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="51dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:baselineAligned="false"
+        android:id="@+id/linearLayout">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/round_next_button"
+            android:id="@+id/round_btnNext"
+            android:layout_weight="2" />
+    </LinearLayout>
+
 </RelativeLayout>

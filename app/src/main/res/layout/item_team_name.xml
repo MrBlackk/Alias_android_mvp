@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
-
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/team_adapter_tvName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name"
-            android:textSize="24sp"/>
 
-        <TextView
-            android:id="@+id/team_adapter_tvPoints"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="24sp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/team_adapter_tvName"
-            android:layout_toEndOf="@+id/team_adapter_tvName"
-            android:layout_marginLeft="54dp"
-            android:layout_marginStart="54dp" />
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/team_adapter_tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="24sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="0.75"/>
+
+            <TextView
+                android:id="@+id/team_adapter_tvPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="24sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"/>
+
+        </LinearLayout>
+
     </RelativeLayout>
 
 
