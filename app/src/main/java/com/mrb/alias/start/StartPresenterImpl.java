@@ -42,7 +42,7 @@ public class StartPresenterImpl implements StartPresenter {
      */
     @Override
     public void onRulesButtonClick() {
-        startView.showRules();
+        startView.navigateToRules();
     }
 
     /**

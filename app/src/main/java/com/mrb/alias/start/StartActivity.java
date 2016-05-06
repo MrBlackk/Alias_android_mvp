@@ -8,12 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mrb.alias.BuildConfig;
 import com.mrb.alias.R;
 import com.mrb.alias.results.Game;
 import com.mrb.alias.results.ResultsActivity;
+import com.mrb.alias.rules.RulesActivity;
 import com.mrb.alias.team.TeamActivity;
 import com.mrb.alias.utils.SharedPreference;
 
@@ -109,19 +109,20 @@ public class StartActivity extends AppCompatActivity implements StartView {
     }
 
     /**
+     * Navigate to Rules activity
+     */
+    @Override
+    public void navigateToRules() {
+        startActivity(new Intent(this, RulesActivity.class));
+        finish();
+    }
+
+    /**
      * Exit from application
      */
     @Override
     public void exit() {
         finish();
-    }
-
-    /**
-     * Show rules message
-     */
-    @Override
-    public void showRules() {
-        Toast.makeText(getApplicationContext(), "There are no rules!", Toast.LENGTH_LONG).show();
     }
 
     /**

@@ -11,9 +11,9 @@ public interface StartView {
 
     void navigateToResults();
 
-    void exit();
+    void navigateToRules();
 
-    void showRules();
+    void exit();
 
     void clearPreferences();
 
