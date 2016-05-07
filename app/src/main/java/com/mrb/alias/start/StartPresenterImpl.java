@@ -24,9 +24,17 @@ public class StartPresenterImpl implements StartPresenter {
         if(game.isStarted()){
             startView.showContinueGameDialog();
         } else {
-            startView.clearPreferences();
-            startView.navigateToTeam();
+            startNewGame();
         }
+    }
+
+    /**
+     * Start New Game
+     */
+    private void startNewGame(){
+        startView.copyDatabase();
+        startView.clearPreferences();
+        startView.navigateToTeam();
     }
 
     /**
@@ -76,8 +84,7 @@ public class StartPresenterImpl implements StartPresenter {
      */
     @Override
     public void onContinueDialogYesButtonClick() {
-        startView.clearPreferences();
-        startView.navigateToTeam();
+        startNewGame();
     }
 
     /**

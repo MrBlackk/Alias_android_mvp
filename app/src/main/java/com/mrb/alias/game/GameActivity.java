@@ -17,8 +17,6 @@ import com.mrb.alias.start.StartActivity;
 import com.mrb.alias.utils.DataBaseHelper;
 import com.mrb.alias.utils.SharedPreference;
 
-import java.io.IOException;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -52,11 +50,6 @@ public class GameActivity extends AppCompatActivity implements GameView {
         sharedPreference = new SharedPreference();
 
         dataBaseHelper = new DataBaseHelper(this);
-        try {
-            dataBaseHelper.createDataBase();
-        } catch (IOException ioe) {
-            throw new Error("Unable to create database");
-        }
         try {
             dataBaseHelper.openDataBase();
         } catch (SQLException sqle) {

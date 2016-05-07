@@ -24,4 +24,6 @@ public interface StartView {
     void showContinueGameDialog();
 
     void showExitGameDialog();
+
+    void copyDatabase();
 }

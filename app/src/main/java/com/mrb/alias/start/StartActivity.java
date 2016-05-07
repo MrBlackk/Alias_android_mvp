@@ -15,7 +15,10 @@ import com.mrb.alias.results.Game;
 import com.mrb.alias.results.ResultsActivity;
 import com.mrb.alias.rules.RulesActivity;
 import com.mrb.alias.team.TeamActivity;
+import com.mrb.alias.utils.DataBaseHelper;
 import com.mrb.alias.utils.SharedPreference;
+
+import java.io.IOException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -39,6 +42,7 @@ public class StartActivity extends AppCompatActivity implements StartView {
 
     private StartPresenter presenter;
     private SharedPreference sharedPreference;
+    private DataBaseHelper dataBaseHelper;
 
     /**
      * On create activity
@@ -187,6 +191,19 @@ public class StartActivity extends AppCompatActivity implements StartView {
                     }
                 })
                 .show();
+    }
+
+    /**
+     * Copy database if it is not exist
+     */
+    @Override
+    public void copyDatabase() {
+        dataBaseHelper = new DataBaseHelper(this);
+        try {
+            dataBaseHelper.createDataBase();
+        } catch (IOException ioe) {
+            throw new Error("Unable to create database");
+        }
     }
 
     /**
