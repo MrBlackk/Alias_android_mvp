@@ -25,6 +25,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     private final static String TABLE_NAME = "words";
 
+    private final static int DB_VERSION = 1;
+
     private SQLiteDatabase myDataBase;
 
     private final Context myContext;
@@ -37,7 +39,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
      */
     public DataBaseHelper(Context context) {
 
-        super(context, DB_NAME, null, 1);
+        super(context, DB_NAME, null, DB_VERSION);
         this.myContext = context;
     }
 
@@ -77,10 +79,12 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private boolean checkDataBase() {
 
         SQLiteDatabase checkDB = null;
+        int dbVersion = 0;
 
         try {
             String myPath = DB_PATH + DB_NAME;
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+            dbVersion = checkDB.getVersion();
 
         } catch (SQLiteException e) {
 
@@ -91,6 +95,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         if (checkDB != null) {
 
             checkDB.close();
+            if(dbVersion < DB_VERSION){
+                return false;
+            }
 
         }
 
