@@ -14,6 +14,7 @@ public class Game {
 
     private static Game instance = null;
     private ArrayList<Team> teams;
+    private ArrayList<Team> winners;
     private Team currentTeam;
     private boolean isStarted;
     private boolean isRoundFinished;
@@ -122,5 +123,11 @@ public class Game {
         this.round = round;
     }
 
+    public ArrayList<Team> getWinners() {
+        return winners;
+    }
 
+    public void setWinners(ArrayList<Team> winners) {
+        this.winners = winners;
+    }
 }

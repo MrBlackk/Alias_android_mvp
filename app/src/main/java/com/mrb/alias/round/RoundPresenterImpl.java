@@ -80,9 +80,9 @@ public class RoundPresenterImpl implements RoundPresenter {
         if (currentIndex == size - 1) {
             nextIndex = 0;
             setNextRound();
-            Team winner = getWinner();
-            if (winner != null) {
-                nextIndex = teams.indexOf(winner);
+            ArrayList<Team> winners = getWinners();
+            if (winners != null) {
+                game.setWinners(winners);
                 game.setIsStarted(false);
             }
         }
@@ -138,20 +138,32 @@ public class RoundPresenterImpl implements RoundPresenter {
     /**
      * Get winner or null if there is no winner yet
      */
-    private Team getWinner() {
+    private ArrayList<Team> getWinners() {
         int pointsToWin = game.getMaxPoints();
         ArrayList<Team> teams = game.getTeams();
-        Team winner = null;
+        ArrayList<Team> winners = null;
+        boolean isFinished = false;
         int maxPoints = teams.get(0).getPoints();
 
         for (Team team : teams) {
             int points = team.getPoints();
             if (points >= pointsToWin && points >= maxPoints) {
-                winner = team;
+                maxPoints = points;
+                isFinished = true;
             }
         }
 
-        return winner;
+        if(isFinished){
+            winners = new ArrayList<>();
+            for (Team team : teams) {
+                int points = team.getPoints();
+                if (points == maxPoints) {
+                    winners.add(team);
+                }
+            }
+        }
+
+        return winners;
     }
 
 }

@@ -33,8 +33,17 @@ public class WinPresenterImpl implements WinPresenter {
      * Get winner name and show it
      */
     private void getWinner() {
-        Team winnerTeam = game.getCurrentTeam();
-        String name = winnerTeam.getName();
+        ArrayList<Team> winners = game.getWinners();
+        String name = "";
+        if(winners.size() > 1){
+            for (Team team : winners) {
+                String teamName = team.getName();
+                name = name + teamName + "; ";
+            }
+        } else {
+            name = winners.get(0).getName();
+        }
+
         winView.showWinner(name);
     }
 
