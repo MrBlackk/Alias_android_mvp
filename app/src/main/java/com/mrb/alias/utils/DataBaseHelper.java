@@ -25,7 +25,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     private final static String TABLE_NAME = "words";
 
-    private final static int DB_VERSION = 1;
+    private final static int DB_VERSION = 2;
 
     private SQLiteDatabase myDataBase;
 
