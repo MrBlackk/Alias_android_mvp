@@ -64,10 +64,7 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
         sbTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                int seekStep = 10;
-                progress = Math.round(progress / seekStep) * seekStep;
-                seekBar.setProgress(progress);
-                tvTimeValue.setText(String.valueOf(progress));
+                presenter.onTimeSeekbarChanged(progress);
             }
 
             @Override
@@ -81,10 +78,7 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
         sbPoints.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                int seekStep = 10;
-                progress = Math.round(progress / seekStep) * seekStep;
-                seekBar.setProgress(progress);
-                tvPointsValue.setText(String.valueOf(progress));
+                presenter.onPointsSeekbarChanged(progress);
             }
 
             @Override
@@ -108,7 +102,7 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
      * Get Time on Round seek bar value
      */
     @Override
-    public int getTimeOnRound() {
+    public int getTimeOnRoundProgress() {
         return sbTime.getProgress();
     }
 
@@ -116,7 +110,7 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
      * Get Points to win seek bar value
      */
     @Override
-    public int getPointsOnRound() {
+    public int getPointsOnRoundProgress() {
         return sbPoints.getProgress();
     }
 
@@ -184,5 +178,25 @@ public class SettingsActivity extends AppCompatActivity implements SettingsView 
     @Override
     public void setPointsSeekBarProgress(int progress) {
         sbPoints.setProgress(progress);
+    }
+
+    @Override
+    public void setTimeSeekMax(int max) {
+        sbTime.setMax(max);
+    }
+
+    @Override
+    public void setPointsSeekMax(int max) {
+        sbPoints.setMax(max);
+    }
+
+    @Override
+    public void setTimeSeekTextValue(int value) {
+        tvTimeValue.setText(String.valueOf(value));
+    }
+
+    @Override
+    public void setPointsSeekTextValue(int value) {
+        tvPointsValue.setText(String.valueOf(value));
     }
 }

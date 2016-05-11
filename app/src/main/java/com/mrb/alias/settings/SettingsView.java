@@ -8,9 +8,9 @@ import com.mrb.alias.results.Game;
  */
 public interface SettingsView {
 
-    int getTimeOnRound();
+    int getTimeOnRoundProgress();
 
-    int getPointsOnRound();
+    int getPointsOnRoundProgress();
 
     String getLevelValue();
 
@@ -25,4 +25,12 @@ public interface SettingsView {
     void setTimeSeekBarProgress(int progress);
 
     void setPointsSeekBarProgress(int progress);
+
+    void setTimeSeekMax(int max);
+
+    void setPointsSeekMax(int max);
+
+    void setTimeSeekTextValue(int value);
+
+    void setPointsSeekTextValue(int value);
 }

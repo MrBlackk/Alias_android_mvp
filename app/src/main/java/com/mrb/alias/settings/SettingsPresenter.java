@@ -11,4 +11,8 @@ public interface SettingsPresenter {
     void onStart();
 
     void onBackButtonPressed();
+
+    void onTimeSeekbarChanged(int progress);
+
+    void onPointsSeekbarChanged(int progress);
 }
