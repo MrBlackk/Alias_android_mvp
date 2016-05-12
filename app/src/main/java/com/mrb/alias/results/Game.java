@@ -3,8 +3,8 @@ package com.mrb.alias.results;
 import com.mrb.alias.team.Team;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 
 /**
  * Game singleton class
@@ -21,7 +21,7 @@ public class Game {
     private int round;
     private int maxPoints;
     private int timeOnRound;
-    private HashMap<String, Boolean> currentResults = new HashMap<>();
+    private LinkedHashMap<String, Boolean> currentResults = new LinkedHashMap<>();
     private String level;
     private HashSet<Integer> usedIds = new HashSet<>();
 
@@ -47,7 +47,7 @@ public class Game {
         this.usedIds = usedIds;
     }
 
-    public HashMap<String, Boolean> getCurrentResults() {
+    public LinkedHashMap<String, Boolean> getCurrentResults() {
         return currentResults;
     }
 

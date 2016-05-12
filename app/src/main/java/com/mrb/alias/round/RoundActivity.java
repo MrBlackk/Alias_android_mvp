@@ -14,7 +14,7 @@ import com.mrb.alias.start.StartActivity;
 import com.mrb.alias.utils.SharedPreference;
 import com.mrb.alias.win.WinActivity;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -99,7 +99,7 @@ public class RoundActivity extends AppCompatActivity implements RoundView {
      * Show list of words
      */
     @Override
-    public void showListOfWords(HashMap<String, Boolean> words) {
+    public void showListOfWords(LinkedHashMap<String, Boolean> words) {
         WordsResultAdapter adapter = new WordsResultAdapter(words);
         lvWords.setAdapter(adapter);
     }

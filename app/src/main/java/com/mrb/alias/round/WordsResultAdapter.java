@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.mrb.alias.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  * Adapter to show word results
@@ -21,7 +21,7 @@ public class WordsResultAdapter extends BaseAdapter {
     private final ArrayList mData;
 
 
-    public WordsResultAdapter(HashMap<String, Boolean> map) {
+    public WordsResultAdapter(LinkedHashMap<String, Boolean> map) {
         mData = new ArrayList();
         mData.addAll(map.entrySet());
     }
@@ -32,8 +32,8 @@ public class WordsResultAdapter extends BaseAdapter {
     }
 
     @Override
-    public HashMap.Entry<String, Boolean> getItem(int position) {
-        return (HashMap.Entry<String, Boolean>) mData.get(position);
+    public LinkedHashMap.Entry<String, Boolean> getItem(int position) {
+        return (LinkedHashMap.Entry<String, Boolean>) mData.get(position);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class WordsResultAdapter extends BaseAdapter {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_words_list, parent, false);
         }
 
-        final HashMap.Entry<String, Boolean> item = getItem(position);
+        final LinkedHashMap.Entry<String, Boolean> item = getItem(position);
 
         TextView tvWord = (TextView) convertView.findViewById(R.id.results_adapter_tvWord);
         tvWord.setText(item.getKey());

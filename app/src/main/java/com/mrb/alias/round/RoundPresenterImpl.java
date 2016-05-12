@@ -4,7 +4,7 @@ import com.mrb.alias.results.Game;
 import com.mrb.alias.team.Team;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  * Round Presenter implementation
@@ -117,10 +117,10 @@ public class RoundPresenterImpl implements RoundPresenter {
      * Count number of points for current results
      */
     private int getNumberOfPoints() {
-        HashMap<String, Boolean> results = game.getCurrentResults();
+        LinkedHashMap<String, Boolean> results = game.getCurrentResults();
         int points = 0;
 
-        for (HashMap.Entry<String, Boolean> entry : results.entrySet()) {
+        for (LinkedHashMap.Entry<String, Boolean> entry : results.entrySet()) {
             if (entry.getValue() == null) {
                 continue;
             }
