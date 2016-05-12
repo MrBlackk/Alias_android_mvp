@@ -93,10 +93,10 @@ public class GameActivity extends AppCompatActivity implements GameView {
      */
     @Override
     public void startTimer(int time) {
-        countDownTimer = new CountDownTimer(time * 1000, 1000) {
+        countDownTimer = new CountDownTimer(time * 1000, 500) {
             @Override
             public void onTick(long millisUntilFinished) {
-                tvTimer.setText(String.valueOf(millisUntilFinished / 1000));
+                tvTimer.setText(String.valueOf((int) Math.ceil(millisUntilFinished / 1000.0)));
             }
 
             @Override
