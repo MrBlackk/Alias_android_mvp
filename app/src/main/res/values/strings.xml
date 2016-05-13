@@ -23,9 +23,9 @@
     <string name="team_next">Далі</string>
 
     <string name="title_activity_settings">SettingsActivity</string>
-    <string name="settings_time">Час</string>
-    <string name="settings_points">Кількість слів</string>
-    <string name="settings_level">Рівень</string>
+    <string name="settings_time">Час на раунд:</string>
+    <string name="settings_points">Кількість слів:</string>
+    <string name="settings_level">Рівень складності слів:</string>
     <string name="settings_next">Далі</string>
     <string-array name="array_levels">
         <item>Початковий</item>
@@ -35,19 +35,19 @@
     <string name="title_activity_results">ResultsActivity</string>
     <string name="results_button_start">Старт</string>
     <string name="results_text_results">Результати:</string>
-    <string name="results_text_next_team">Наступна команда:</string>
-    <string name="results_text_round">Раунд:</string>
+    <string name="results_text_next_team">"Наступна команда: "</string>
+    <string name="results_text_round">"Раунд: "</string>
 
     <string name="title_activity_game">GameActivity</string>
     <string name="game_text_minus">-</string>
     <string name="game_text_plus">+</string>
 
     <string name="title_activity_round">RoundActivity</string>
-    <string name="round_label">Результати команди:</string>
+    <string name="round_label">Результати за раунд:</string>
     <string name="round_next_button">Далі</string>
 
     <string name="title_activity_win">WinActivity</string>
-    <string name="win_winner_label">Переможець:</string>
+    <string name="win_winner_label">"Переможець: "</string>
     <string name="win_button_to_menu">В меню</string>
     <string name="win_button_return_match">Реванш</string>
 
