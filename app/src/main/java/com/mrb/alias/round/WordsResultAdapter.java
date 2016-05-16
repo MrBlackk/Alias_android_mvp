@@ -1,6 +1,7 @@
 package com.mrb.alias.round;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -38,7 +39,7 @@ public class WordsResultAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
@@ -56,33 +57,68 @@ public class WordsResultAdapter extends BaseAdapter {
         final TextView tvIsGuessed = (TextView) convertView.findViewById(R.id.results_adapter_tvIsGuessed);
         tvIsGuessed.setText(String.valueOf(item.getValue()));
 
-        Button btnPlus = (Button) convertView.findViewById(R.id.results_adapter_btnPlus);
-        Button btnMinus = (Button) convertView.findViewById(R.id.results_adapter_btnMinus);
-        Button btnSkip = (Button) convertView.findViewById(R.id.results_adapter_btnSkip);
+        final Button btnPlus = (Button) convertView.findViewById(R.id.results_adapter_btnPlus);
+        final Button btnMinus = (Button) convertView.findViewById(R.id.results_adapter_btnMinus);
+        final Button btnSkip = (Button) convertView.findViewById(R.id.results_adapter_btnSkip);
 
-        btnPlus.setOnClickListener(new View.OnClickListener() {
+        btnPlus.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                item.setValue(true);
-                tvIsGuessed.setText(String.valueOf(item.getValue()));
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    item.setValue(true);
+                    tvIsGuessed.setText(String.valueOf(item.getValue()));
+                    btnPlus.setPressed(true);
+                    btnMinus.setPressed(false);
+                    btnSkip.setPressed(false);
+                }
+                return true;
             }
         });
 
-        btnMinus.setOnClickListener(new View.OnClickListener() {
+        btnMinus.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                item.setValue(false);
-                tvIsGuessed.setText(String.valueOf(item.getValue()));
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    item.setValue(false);
+                    tvIsGuessed.setText(String.valueOf(item.getValue()));
+                    btnPlus.setPressed(false);
+                    btnMinus.setPressed(true);
+                    btnSkip.setPressed(false);
+                }
+                return true;
             }
         });
 
-        btnSkip.setOnClickListener(new View.OnClickListener() {
+        btnSkip.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                item.setValue(null);
-                tvIsGuessed.setText(String.valueOf(item.getValue()));
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN){
+                    item.setValue(null);
+                    tvIsGuessed.setText(String.valueOf(item.getValue()));
+                    btnPlus.setPressed(false);
+                    btnMinus.setPressed(false);
+                    btnSkip.setPressed(true);
+                }
+
+                return true;
             }
         });
+
+        Boolean value = item.getValue();
+
+        if(Boolean.TRUE.equals(value)){
+            btnPlus.setPressed(true);
+            btnMinus.setPressed(false);
+            btnSkip.setPressed(false);
+        } else if (value == null){
+            btnPlus.setPressed(false);
+            btnMinus.setPressed(false);
+            btnSkip.setPressed(true);
+        } else {
+            btnPlus.setPressed(false);
+            btnMinus.setPressed(true);
+            btnSkip.setPressed(false);
+        }
 
         return convertView;
     }

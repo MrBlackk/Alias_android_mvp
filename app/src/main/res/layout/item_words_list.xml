@@ -8,7 +8,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="String"
-            android:textSize="24sp"/>
+            android:textSize="24sp"
+            android:layout_centerVertical="true" />
 
         <TextView
             android:id="@+id/results_adapter_tvIsGuessed"
@@ -17,6 +18,7 @@
             android:text="Boolean"
             android:textSize="24sp"
             android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/results_adapter_btnPlus"
             android:layout_toStartOf="@+id/results_adapter_btnPlus" />
 
@@ -28,7 +30,8 @@
         android:id="@+id/results_adapter_btnPlus"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/results_adapter_btnMinus"
-        android:layout_toStartOf="@+id/results_adapter_btnMinus" />
+        android:layout_toStartOf="@+id/results_adapter_btnMinus"
+        android:background="@drawable/my_button"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -38,7 +41,8 @@
         android:id="@+id/results_adapter_btnMinus"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/results_adapter_btnSkip"
-        android:layout_toStartOf="@+id/results_adapter_btnSkip" />
+        android:layout_toStartOf="@+id/results_adapter_btnSkip"
+        android:background="@drawable/my_button"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -48,7 +52,8 @@
         android:id="@+id/results_adapter_btnSkip"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/my_button"/>
 
 </RelativeLayout>
 
