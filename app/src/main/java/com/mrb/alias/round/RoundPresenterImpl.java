@@ -56,6 +56,8 @@ public class RoundPresenterImpl implements RoundPresenter {
      */
     @Override
     public void onBackButtonPressed() {
+        clearListOfCurrentWords();
+        roundView.saveGame(game);
         roundView.backToMenu();
     }
 
