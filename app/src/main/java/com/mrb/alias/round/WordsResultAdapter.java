@@ -43,83 +43,83 @@ public class WordsResultAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        if(convertView == null){
+    public View getView(int position, View convertView, final ViewGroup parent) {
+        ViewHolder holder = null;
+        if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_words_list, parent, false);
+            holder = new ViewHolder();
+            holder.tvWord = (TextView) convertView.findViewById(R.id.results_adapter_tvWord);
+            holder.tvIsGuessed = (TextView) convertView.findViewById(R.id.results_adapter_tvIsGuessed);
+            holder.btnPlus = (Button) convertView.findViewById(R.id.results_adapter_btnPlus);
+            holder.btnMinus = (Button) convertView.findViewById(R.id.results_adapter_btnMinus);
+            holder.btnSkip = (Button) convertView.findViewById(R.id.results_adapter_btnSkip);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
 
         final LinkedHashMap.Entry<String, Boolean> item = getItem(position);
 
-        TextView tvWord = (TextView) convertView.findViewById(R.id.results_adapter_tvWord);
-        tvWord.setText(item.getKey());
+        Boolean value = item.getValue();
 
-        final TextView tvIsGuessed = (TextView) convertView.findViewById(R.id.results_adapter_tvIsGuessed);
-        tvIsGuessed.setText(String.valueOf(item.getValue()));
+        holder.tvWord.setText(item.getKey());
+        holder.tvIsGuessed.setText(String.valueOf(value));
 
-        final Button btnPlus = (Button) convertView.findViewById(R.id.results_adapter_btnPlus);
-        final Button btnMinus = (Button) convertView.findViewById(R.id.results_adapter_btnMinus);
-        final Button btnSkip = (Button) convertView.findViewById(R.id.results_adapter_btnSkip);
+        if (Boolean.TRUE.equals(value)) {
+            holder.btnPlus.setPressed(true);
+            holder.btnMinus.setPressed(false);
+            holder.btnSkip.setPressed(false);
+        } else if (value == null) {
+            holder.btnPlus.setPressed(false);
+            holder.btnMinus.setPressed(false);
+            holder.btnSkip.setPressed(true);
+        } else {
+            holder.btnPlus.setPressed(false);
+            holder.btnMinus.setPressed(true);
+            holder.btnSkip.setPressed(false);
+        }
 
-        btnPlus.setOnTouchListener(new View.OnTouchListener() {
+        holder.btnPlus.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     item.setValue(true);
-                    tvIsGuessed.setText(String.valueOf(item.getValue()));
-                    btnPlus.setPressed(true);
-                    btnMinus.setPressed(false);
-                    btnSkip.setPressed(false);
+                    notifyDataSetChanged();
                 }
                 return true;
             }
         });
 
-        btnMinus.setOnTouchListener(new View.OnTouchListener() {
+        holder.btnMinus.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     item.setValue(false);
-                    tvIsGuessed.setText(String.valueOf(item.getValue()));
-                    btnPlus.setPressed(false);
-                    btnMinus.setPressed(true);
-                    btnSkip.setPressed(false);
+                    notifyDataSetChanged();
                 }
                 return true;
             }
         });
 
-        btnSkip.setOnTouchListener(new View.OnTouchListener() {
+        holder.btnSkip.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN){
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     item.setValue(null);
-                    tvIsGuessed.setText(String.valueOf(item.getValue()));
-                    btnPlus.setPressed(false);
-                    btnMinus.setPressed(false);
-                    btnSkip.setPressed(true);
+                    notifyDataSetChanged();
                 }
-
                 return true;
             }
         });
 
-        Boolean value = item.getValue();
-
-        if(Boolean.TRUE.equals(value)){
-            btnPlus.setPressed(true);
-            btnMinus.setPressed(false);
-            btnSkip.setPressed(false);
-        } else if (value == null){
-            btnPlus.setPressed(false);
-            btnMinus.setPressed(false);
-            btnSkip.setPressed(true);
-        } else {
-            btnPlus.setPressed(false);
-            btnMinus.setPressed(true);
-            btnSkip.setPressed(false);
-        }
-
         return convertView;
+    }
+
+    public static class ViewHolder {
+        public TextView tvWord;
+        public TextView tvIsGuessed;
+        public Button btnPlus;
+        public Button btnMinus;
+        public Button btnSkip;
     }
 }
