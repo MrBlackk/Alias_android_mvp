@@ -3,6 +3,7 @@ package com.mrb.alias.round;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -100,8 +101,16 @@ public class RoundActivity extends AppCompatActivity implements RoundView {
      */
     @Override
     public void showListOfWords(LinkedHashMap<String, Boolean> words) {
-        WordsResultAdapter adapter = new WordsResultAdapter(words);
+        final WordsResultAdapter adapter = new WordsResultAdapter(words);
         lvWords.setAdapter(adapter);
+        //fix of issue with scrolling and changing color of button
+        lvWords.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                adapter.notifyDataSetChanged();
+                return false;
+            }
+        });
     }
 
     /**
