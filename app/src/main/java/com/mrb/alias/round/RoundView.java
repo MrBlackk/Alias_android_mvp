@@ -21,4 +21,6 @@ public interface RoundView {
     void backToMenu();
 
     void navigateToWin();
+
+    void showCurrentPoints(int points);
 }

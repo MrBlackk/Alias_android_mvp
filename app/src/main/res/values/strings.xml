@@ -44,6 +44,7 @@
 
     <string name="title_activity_round">RoundActivity</string>
     <string name="round_label">Результати за раунд:</string>
+    <string name="round_points_label">"Кількість очок: "</string>
     <string name="round_next_button">Далі</string>
 
     <string name="title_activity_win">WinActivity</string>

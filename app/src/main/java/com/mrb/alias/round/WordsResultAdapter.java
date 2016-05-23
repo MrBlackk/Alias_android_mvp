@@ -20,11 +20,13 @@ import java.util.LinkedHashMap;
 public class WordsResultAdapter extends BaseAdapter {
 
     private final ArrayList mData;
+    private RoundPresenter presenter;
 
 
-    public WordsResultAdapter(LinkedHashMap<String, Boolean> map) {
+    public WordsResultAdapter(LinkedHashMap<String, Boolean> map, RoundPresenter presenter) {
         mData = new ArrayList();
         mData.addAll(map.entrySet());
+        this.presenter = presenter;
     }
 
     @Override
@@ -85,6 +87,7 @@ public class WordsResultAdapter extends BaseAdapter {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     item.setValue(true);
                     notifyDataSetChanged();
+                    presenter.getAndShowCurrentPoints();
                 }
                 return true;
             }
@@ -96,6 +99,7 @@ public class WordsResultAdapter extends BaseAdapter {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     item.setValue(false);
                     notifyDataSetChanged();
+                    presenter.getAndShowCurrentPoints();
                 }
                 return true;
             }
@@ -107,6 +111,7 @@ public class WordsResultAdapter extends BaseAdapter {
                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
                     item.setValue(null);
                     notifyDataSetChanged();
+                    presenter.getAndShowCurrentPoints();
                 }
                 return true;
             }

@@ -28,8 +28,8 @@
         android:id="@+id/round_lvWords"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/linearLayout"
-        android:layout_below="@+id/round_tvResultsLabel" />
+        android:layout_below="@+id/round_tvResultsLabel"
+        android:layout_above="@+id/round_tvPointsLabel" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -51,5 +51,25 @@
             android:id="@+id/round_btnNext"
             android:layout_weight="2" />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/round_points_label"
+        android:id="@+id/round_tvPointsLabel"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/round_tvPoints"
+        android:layout_below="@+id/round_lvWords"
+        android:layout_toRightOf="@+id/round_tvPointsLabel"
+        android:layout_toEndOf="@+id/round_tvPointsLabel" />
 
 </RelativeLayout>

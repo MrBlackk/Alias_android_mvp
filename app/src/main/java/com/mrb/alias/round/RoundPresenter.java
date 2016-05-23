@@ -11,4 +11,6 @@ public interface RoundPresenter {
     void onNextButtonClick();
 
     void onBackButtonPressed();
+
+    void getAndShowCurrentPoints();
 }

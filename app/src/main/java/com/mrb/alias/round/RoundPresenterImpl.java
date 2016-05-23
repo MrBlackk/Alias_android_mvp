@@ -26,6 +26,7 @@ public class RoundPresenterImpl implements RoundPresenter {
     @Override
     public void onStart() {
         getListOfWords();
+        getAndShowCurrentPoints();
     }
 
     /**
@@ -59,6 +60,14 @@ public class RoundPresenterImpl implements RoundPresenter {
         clearListOfCurrentWords();
         roundView.saveGame(game);
         roundView.backToMenu();
+    }
+
+    /**
+     * Get current points and show it
+     */
+    @Override
+    public void getAndShowCurrentPoints() {
+        roundView.showCurrentPoints(getNumberOfPoints());
     }
 
     /**

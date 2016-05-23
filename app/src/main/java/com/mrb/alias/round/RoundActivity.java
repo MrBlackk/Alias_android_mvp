@@ -7,6 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.mrb.alias.R;
 import com.mrb.alias.results.Game;
@@ -27,6 +28,9 @@ public class RoundActivity extends AppCompatActivity implements RoundView {
 
     @Bind(R.id.round_btnNext)
     Button btnNext;
+
+    @Bind(R.id.round_tvPoints)
+    TextView tvPoints;
 
     private SharedPreference sharedPreference;
     private RoundPresenter presenter;
@@ -97,11 +101,19 @@ public class RoundActivity extends AppCompatActivity implements RoundView {
     }
 
     /**
+     * Show current points for round
+     */
+    @Override
+    public void showCurrentPoints(int points) {
+        tvPoints.setText(String.valueOf(points));
+    }
+
+    /**
      * Show list of words
      */
     @Override
     public void showListOfWords(LinkedHashMap<String, Boolean> words) {
-        final WordsResultAdapter adapter = new WordsResultAdapter(words);
+        final WordsResultAdapter adapter = new WordsResultAdapter(words, presenter);
         lvWords.setAdapter(adapter);
         //fix of issue with scrolling and changing color of button
         lvWords.setOnTouchListener(new View.OnTouchListener() {
