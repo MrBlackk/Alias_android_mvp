@@ -63,23 +63,28 @@ public class WordsResultAdapter extends BaseAdapter {
         final LinkedHashMap.Entry<String, Boolean> item = getItem(position);
 
         Boolean value = item.getValue();
+        String numberToShow;
 
         holder.tvWord.setText(item.getKey());
-        holder.tvIsGuessed.setText(String.valueOf(value));
 
         if (Boolean.TRUE.equals(value)) {
             holder.btnPlus.setPressed(true);
             holder.btnMinus.setPressed(false);
             holder.btnSkip.setPressed(false);
+            numberToShow = "+1";
         } else if (value == null) {
             holder.btnPlus.setPressed(false);
             holder.btnMinus.setPressed(false);
             holder.btnSkip.setPressed(true);
+            numberToShow = "0";
         } else {
             holder.btnPlus.setPressed(false);
             holder.btnMinus.setPressed(true);
             holder.btnSkip.setPressed(false);
+            numberToShow = "-1";
         }
+
+        holder.tvIsGuessed.setText(numberToShow);
 
         holder.btnPlus.setOnTouchListener(new View.OnTouchListener() {
             @Override
