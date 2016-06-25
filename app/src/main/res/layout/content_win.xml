@@ -60,13 +60,19 @@
         android:layout_height="wrap_content"
         android:layout_weight="2">
 
-        <Button
+        <com.rey.material.widget.Button
+            android:background="@color/colorMain"
+            app:rd_enable="true"
+            android:layout_margin="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/win_button_return_match"
             android:id="@+id/win_btnReturnMatch" />
 
-        <Button
+        <com.rey.material.widget.Button
+            android:background="@color/colorMain"
+            app:rd_enable="true"
+            android:layout_margin="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/win_button_to_menu"

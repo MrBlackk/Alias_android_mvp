@@ -35,12 +35,15 @@
         android:baselineAligned="false"
         android:id="@+id/linearLayout">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/team_next"
-        android:id="@+id/team_btnNext"
-        android:layout_weight="2"/>
+        <com.rey.material.widget.Button
+            android:id="@+id/team_btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:layout_weight="2"
+            android:background="@color/colorMain"
+            android:text="@string/team_next"
+            app:rd_enable="true" />
     </LinearLayout>
 
         <ListView

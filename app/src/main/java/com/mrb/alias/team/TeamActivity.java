@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.mrb.alias.R;
@@ -12,6 +11,7 @@ import com.mrb.alias.results.Game;
 import com.mrb.alias.settings.SettingsActivity;
 import com.mrb.alias.start.StartActivity;
 import com.mrb.alias.utils.SharedPreference;
+import com.rey.material.widget.Button;
 
 import java.util.ArrayList;
 

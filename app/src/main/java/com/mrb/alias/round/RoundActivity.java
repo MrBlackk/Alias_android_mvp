@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,6 +14,7 @@ import com.mrb.alias.results.ResultsActivity;
 import com.mrb.alias.start.StartActivity;
 import com.mrb.alias.utils.SharedPreference;
 import com.mrb.alias.win.WinActivity;
+import com.rey.material.widget.Button;
 
 import java.util.LinkedHashMap;
 

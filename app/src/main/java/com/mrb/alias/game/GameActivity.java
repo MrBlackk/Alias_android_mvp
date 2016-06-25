@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.mrb.alias.R;
@@ -16,6 +15,7 @@ import com.mrb.alias.round.RoundActivity;
 import com.mrb.alias.start.StartActivity;
 import com.mrb.alias.utils.DataBaseHelper;
 import com.mrb.alias.utils.SharedPreference;
+import com.rey.material.widget.Button;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
